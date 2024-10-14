@@ -1,0 +1,30 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pharmacy.INST.DissolutionClient.pages.modal"
+        xmlns:common="clr-namespace:Pharmacy.INST.DissolutionClient.common" x:Class="Pharmacy.INST.DissolutionClient.pages.modal.WashingTimesModal"
+        xmlns:kb="clr-namespace:com.ccg.GeckoKit.ctrl;assembly=GeckoKit"
+        mc:Ignorable="d"
+        x:Name="WTM_MW" Title="清洗" Height="334" Width="450" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Canvas>
+        <Label x:Name="LB_WTM_TB_WASHINGTIMES" Content="清洗次数：" HorizontalContentAlignment="Right" Canvas.Left="14" Canvas.Top="28" FontSize="16" Width="139"/>
+        <TextBox x:Name="WTM_TB_WASHINGTIMES" Canvas.Left="165" Canvas.Top="22" HorizontalContentAlignment="Center" TextWrapping="Wrap" Width="152" Height="42" FontSize="32" Text="1" KeyDown="WTM_TB_WASHINGTIMES_KeyDown"/>
+        <GroupBox x:Name="WTM_NORMALTIMES_GROUPBOX" Header="常用次数" Height="98" Width="411" Canvas.Top="72" Canvas.Left="14">
+            <Canvas Margin="-3,0,3,0">
+                <Button x:Name="WTM_BTN_TIMES_1" Content="1次" Style="{StaticResource DynamicButton}"  Canvas.Left="10" Canvas.Top="14" Width="80" Height="50" Background="#FFC1BEBE" FontSize="20" Click="WTM_BTN_TIMES_1_Click"/>
+                <Button x:Name="WTM_BTN_TIMES_2" Content="2次" Style="{StaticResource DynamicButton}"  Canvas.Left="109" Canvas.Top="14" Width="80" Height="50" Background="#FFC1BEBE" Click="WTM_BTN_TIMES_2_Click"/>
+                <Button x:Name="WTM_BTN_TIMES_3" Content="3次" Style="{StaticResource DynamicButton}"  Canvas.Left="208" Canvas.Top="14" Width="80" Height="50" Background="#FFC1BEBE" Click="WTM_BTN_TIMES_3_Click"/>
+                <Button x:Name="WTM_BTN_TIMES_5" Content="5次" Style="{StaticResource DynamicButton}"  Canvas.Left="308" Canvas.Top="14" Width="80" Height="50" Background="#FFC1BEBE" Click="WTM_BTN_TIMES_5_Click"/>
+            </Canvas>
+        </GroupBox>
+        <Button x:Name="BTN_CONFIRM" Content="确定" Style="{StaticResource DynamicButton}"  Canvas.Left="147" Canvas.Top="244" Width="80" Height="35" Click="BTN_CONFIRM_Click" />
+        <Button x:Name="BTN_CANCEL" Content="关闭" Style="{StaticResource DynamicButton}"  Canvas.Left="240" Canvas.Top="244" Width="80" Height="36" Click="BTN_CANCEL_Click"/>
+        <Label x:Name="LB_WASHINGTIME_UNIT" Content="次" Canvas.Left="343" Canvas.Top="28" FontSize="16"/>
+        <kb:KeyboardCtrl Canvas.Left="17" Canvas.Top="249"/>
+        <Label x:Name="WTM_WASHING_STATUS" HorizontalContentAlignment="Center" Content="输入清洗次数，点确定" Canvas.Left="26" Canvas.Top="186" Width="399" FontSize="20"/>
+        <Image x:Name="WTM_WASHINGICON" Height="70" Canvas.Left="30" Canvas.Top="170" Width="70"  Visibility="Hidden"/>
+
+    </Canvas>
+</Window>

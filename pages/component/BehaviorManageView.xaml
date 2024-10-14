@@ -1,0 +1,27 @@
+﻿<Page x:Class="Pharmacy.INST.DissolutionClient.pages.component.BehaviorManageView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pharmacy.INST.DissolutionClient.pages.component"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1180"
+      Title="BehaviorManageView" Background="White">
+    <Canvas>
+        <GroupBox Header="行为管理" Height="590" Width="1182" Canvas.Top="4" FontSize="16" Canvas.Left="3" BorderBrush="{DynamicResource GroupBoxBorderBrush}">
+            <Canvas Margin="0,-16,0,0">
+                <Label Content="日志类型列表：" Canvas.Left="28" Canvas.Top="48"/>
+                <ListBox x:Name="SMV_LB_LOGTYPE" ItemContainerStyle="{StaticResource DataListBoxItem}" Height="420" Width="350" Canvas.Top="57" Canvas.Left="151" SelectionChanged="SMV_LB_LOGTYPE_SelectionChanged" FontSize="20"/>
+                <TextBox x:Name="SMV_TB_LOGTYPE"  Style="{StaticResource DefaultTextBox}"  Canvas.Left="151" Canvas.Top="482" TextWrapping="Wrap" Width="225" Height="30"/>
+                <Button x:Name="SMV_BTN_LOGTYPE_ADD" Style="{StaticResource DynamicButton}"   Content="添加" Canvas.Left="379" Canvas.Top="482" RenderTransformOrigin="0.35,0.192" Height="30" Width="60" Click="SMV_BTN_LOGTYPE_ADD_Click"/>
+                <Button x:Name="SMV_BTN_LOGTYPE_DELETE" Style="{StaticResource DynamicButton}"   Content="删除" Canvas.Left="441" Canvas.Top="482" Height="30" Width="60" Click="SMV_BTN_LOGTYPE_DELETE_Click"/>
+                <Label Content="行为列表：" Canvas.Left="643" Canvas.Top="48" RenderTransformOrigin="-0.009,0.319"/>
+                <ListBox x:Name="SMV_LB_BEHAVIOR"  ItemContainerStyle="{StaticResource DataListBoxItem}" Height="420" Width="350" Canvas.Left="743" Canvas.Top="57" FontSize="20"/>
+                <TextBox x:Name="SMV_TB_BEHAVIOR"  Style="{StaticResource DefaultTextBox}"  Canvas.Left="743" Canvas.Top="482" TextWrapping="Wrap" Width="225" Height="30"/>
+                <Button x:Name="SMV_BTN_BEHAVIOR_ADD" Style="{StaticResource DynamicButton}"   Content="添加" Canvas.Left="971" Canvas.Top="482" RenderTransformOrigin="0.35,0.192" Height="30" Width="60" Click="SMV_BTN_BEHAVIOR_ADD_Click"/>
+                <Button x:Name="SMV_BTN_BEHAVIOR_DELETE" Style="{StaticResource DynamicButton}"  Content="删除" Canvas.Left="1033" Canvas.Top="482" Height="30" Width="60" Click="SMV_BTN_BEHAVIOR_DELETE_Click"/>
+                <Image x:Name="SMV_IMG_ASSOSIATION" Height="60" Canvas.Left="587" Canvas.Top="220" Width="60"/>
+            </Canvas>
+        </GroupBox>
+    </Canvas>
+</Page>

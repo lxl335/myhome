@@ -1,0 +1,53 @@
+﻿<Page x:Class="Pharmacy.INST.DissolutionClient.pages.AboutView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:mpp="clr-namespace:MoonPdfLib;assembly=MoonPdfLib"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1280"
+      Title="AboutView"
+      Background="White" Loaded="Page_Loaded">
+    <Canvas x:Name="MainView" Loaded="MainView_Loaded">
+        <GroupBox x:Name="AV_SYSINFO_GROUPBOX" Header="系统信息" BorderBrush="{DynamicResource GroupBoxBorderBrush}" Height="350" Width="500" FontSize="16" Canvas.Top="6" Canvas.Left="8">
+            <Canvas Margin="2,0,-2,0">
+                <Label x:Name="LB_AV_APPNAME" Content="软件名称：" Canvas.Left="14" Canvas.Top="20"/>
+                <Label x:Name="LB_AV_APPVERSION" Content="版本号：" Canvas.Left="14" Canvas.Top="60"/>
+                <Label x:Name="LB_AV_APPOWNER" Content="版权所有：" Canvas.Left="14" Canvas.Top="100"/>
+                <Label x:Name="LB_AV_APPINSTALLDATE" Content="安装日期：" Canvas.Left="14" Canvas.Top="140"/>
+                <Label x:Name="LB_AV_APPDBSIZE" Content="数据库大小：" Canvas.Left="14" Canvas.Top="180"/>
+                <Label x:Name="LB_AV_APPLOGSIZE" Content="日志大小：" Canvas.Left="14" Canvas.Top="221"/>
+                <Label x:Name="LB_AV_APPREPORTCOUNT" Content="实验报告数量：" Canvas.Left="14" Canvas.Top="261"/>
+
+                <Label x:Name="AV_APPNAME" Content="------" Canvas.Left="152" Canvas.Top="20" Width="315"/>
+                <Label x:Name="AV_APPVERSION" Content="------" Canvas.Left="152" Canvas.Top="60" Width="315"/>
+                <Label x:Name="AV_APPOWNER" Content="------" Canvas.Left="152" Canvas.Top="100" Width="315"/>
+                <Label x:Name="AV_APPINSTALLDATE" Content="------" Canvas.Left="152" Canvas.Top="140" Width="315"/>
+                <Label x:Name="AV_APPDBSIZE" Content="------" Canvas.Left="152" Canvas.Top="180" Width="315"/>
+                <Label x:Name="AV_APPLOGSIZE" Content="------" Canvas.Left="152" Canvas.Top="221" Width="315"/>
+                <Label x:Name="AV_APPREPORTCOUNT" Content="------" Canvas.Left="152" Canvas.Top="261" Width="315"/>
+            </Canvas>
+        </GroupBox>
+        <GroupBox x:Name="AV_HELP_GROUPBOX" Header="帮助" BorderBrush="{DynamicResource GroupBoxBorderBrush}" Height="575" Width="732" FontSize="16" Canvas.Top="6" Canvas.Left="523">
+            <Canvas>
+                <Border Background="#d3d3d3" Canvas.Top="10" Canvas.Left="10">
+                    <mpp:MoonPdfPanel x:Name="moonPdfPanel" Height="520" Width="700" Background="LightGray" ViewType="SinglePage" PageRowDisplay="ContinuousPageRows" PageMargin="0,2,4,2" AllowDrop="True"/>
+                </Border>
+            </Canvas>
+        </GroupBox>
+        <GroupBox x:Name="AV_AUTHORIZEDINFO_GROUPBOX" Header="许可信息" BorderBrush="{DynamicResource GroupBoxBorderBrush}" Height="217" Width="500" FontSize="16" Canvas.Top="364" Canvas.Left="8">
+            <Canvas Margin="2,0,-2,0">
+                <Label x:Name="AV_AuthorizedTo" Content="------" Canvas.Left="155" Canvas.Top="20" Width="300"/>
+                <Label x:Name="AV_TIMELIMIT" Content="------" Canvas.Left="212" Canvas.Top="65" Width="185"/>
+                <Label x:Name="LB_AV_AuthorizedTo" Content="被许可人：" Canvas.Left="14" Canvas.Top="20" Width="130"/>
+                <Label x:Name="LB_AV_TIMELIMIT" Content="使用期限：" Canvas.Left="14" Canvas.Top="64" Width="122"/>
+                <Label Canvas.Left="155" Canvas.Top="106" Width="320" Height="49" FontSize="16">
+                    <TextBlock x:Name="AV_APPSERIALNO" TextWrapping="Wrap" Height="42" />
+                </Label>
+                <Label x:Name="LB_AV_BTN_INPUTSERIALNO" Content="序列号：" Canvas.Left="29" Canvas.Top="106"/>
+                <Button x:Name="AV_BTN_INPUTSERIALNO" Content="输入序列号"  Style="{StaticResource DynamicButton}" Canvas.Left="113" Canvas.Top="159" Click="AV_BTN_INPUTSERIALNO_Click" Width="111" Height="30"/>
+                <Label x:Name="LB_AV_TIMELIMIT_UNIT" Content="截止至" Canvas.Left="150" Canvas.Top="65"/>
+            </Canvas>
+        </GroupBox>
+    </Canvas>
+</Page>

@@ -1,0 +1,95 @@
+﻿<Page x:Class="Pharmacy.INST.DissolutionClient.pages.SystemManageView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1280"
+      Title="SystemManageView" Background="White" Loaded="Page_Loaded">
+    <Canvas>
+        <TabControl Height="600" Width="1280" TabStripPlacement="Left">
+            <TabItem x:Name="SMV_ACCOUNT_MANAGE" Header=" 账号管理 " FontSize="16" Margin="-2,-2,0,2" Height="60">
+                <Frame Source="/DissolutionClient;component/pages/component/UserManageView.xaml" Margin="0,-1,0,1" />
+            </TabItem>
+            <TabItem x:Name="SMV_PRIVILEGE_MANAGE"  Header=" 权限管理 " FontSize="16" Margin="-2,1,0,-1" Height="60">
+                <Frame Source="/DissolutionClient;component/pages/component/RoleManageView.xaml" Margin="0,-1,0,1" />
+            </TabItem>
+            <!--<TabItem Header=" 行为管理 " FontSize="16" Margin="-2,4,0,-4"  Height="60">
+                <Frame Source="/DissolutionClient;component/pages/component/BehaviorManageView.xaml" Margin="0,-1,0,1" />
+            </TabItem>-->
+            <TabItem x:Name="SMV_SYSTEMSETTING_MANAGE"  Header=" 系统设置 " FontSize="16" Margin="-2,7,0,-7"  Height="60">
+                <Canvas>
+                    <GroupBox x:Name="SMV_SYSTEMSETTING_GROUPBOX" Header="系统设置" Height="590" Width="1182" Canvas.Top="4" FontSize="16" Canvas.Left="3" BorderBrush="{DynamicResource GroupBoxBorderBrush}">
+                        <Canvas Margin="0,-16,0,0">
+                            <Button x:Name="SMV_BTN_SAVESETTING" Content="保存设置" Style="{StaticResource DynamicButton}" Canvas.Left="528" Canvas.Top="517" Height="50" Width="130" RenderTransformOrigin="0.5,0.5" Click="SMV_BTN_SAVESETTING_Click" />
+                            <GroupBox x:Name="SMV_MAINBOARD_GROUPBOX" Header="主机" Height="75" Width="1130" Canvas.Left="21" Canvas.Top="28">
+                                <Canvas>
+                                    <Label x:Name="LB_SMV_COMBO_COMPORT" Content="通信端口：" HorizontalContentAlignment="Right"  Width="129" Canvas.Top="8"/>
+                                    <ComboBox x:Name="SMV_COMBO_COMPORT" Style="{StaticResource DefaultComboBox}"  Width="300" Canvas.Left="129" Canvas.Top="10"/>
+                                    <Label x:Name="LB_SMV_COMBO_COMBAUD" Content="波特率：" HorizontalContentAlignment="Right" Canvas.Left="434"  Width="95" Canvas.Top="9"/>
+                                    <ComboBox x:Name="SMV_COMBO_COMBAUD" Style="{StaticResource DefaultComboBox}"  Width="200" Canvas.Left="529" Canvas.Top="11" />
+                                </Canvas>
+                            </GroupBox>
+                            <GroupBox x:Name="SMV_PRINTER_GROUPBOX" Header="打印机" Height="85" Width="1130" Canvas.Left="21" Canvas.Top="103" >
+                                <Canvas>
+                                    <ComboBox x:Name="SMV_COMBO_PRINTER" Style="{StaticResource DefaultComboBox}"  Width="300" Canvas.Left="129" Canvas.Top="16"/>
+                                    <ComboBox x:Name="SMV_COMBO_PRINTERPORT" Style="{StaticResource DefaultComboBox}"  Width="200" Canvas.Top="16" Canvas.Left="531"/>
+                                    <Label x:Name="LB_SMV_COMBO_PRINTER" Content="名称：" HorizontalContentAlignment="Right" Width="127" Canvas.Left="2" Canvas.Top="13" RenderTransformOrigin="0.5,0.5">
+                                        <Label.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="0.092"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Label.RenderTransform>
+                                    </Label>
+                                    <Label x:Name="LB_SMV_COMBO_PRINTERPORT" Content="端口：" HorizontalContentAlignment="Right" Width="97" Canvas.Left="434" Canvas.Top="12"/>
+                                    <Label x:Name="LB_SMV_COMBO_PRINTCOMBAUD" Content="波特率：" Canvas.Left="757"  Width="102" Canvas.Top="12" HorizontalContentAlignment="Right"/>
+                                    <ComboBox x:Name="SMV_COMBO_PRINTCOMBAUD" Style="{StaticResource DefaultComboBox}"  Width="200" Canvas.Left="859" Canvas.Top="14" />
+                                </Canvas>
+                            </GroupBox>
+                            <GroupBox x:Name="SMV_SYSTEMPARAMS_GROUPBOX" Header="系统参数" Height="272" Width="1130" Canvas.Left="21" Canvas.Top="195" >
+                                <Canvas>
+                                    <CheckBox x:Name="SMV_CKB_BEEP_ENABLE" Content="启用取样前蜂鸣" Canvas.Left="397" Canvas.Top="25"/>
+                                    <CheckBox x:Name="SMV_CKB_DOUBLEMOTOR" Content="双电机" Canvas.Left="397" Canvas.Top="60"/>
+                                    <CheckBox x:Name="SMV_CKB_PUTPILL_ENABLE" Content="启用投药装置" Canvas.Left="35" Canvas.Top="60"/>
+                                    <CheckBox x:Name="SMV_CKB_SAMPLEPOINT_ENABLE" Content="启用取样针装置" Canvas.Left="35" Canvas.Top="95"/>
+                                    <CheckBox x:Name="SMV_CKB_CUPTEMP_ENABLE" Content="启用杯内测温装置" Canvas.Left="35" Canvas.Top="130"/>
+                                    <CheckBox x:Name="SMV_CKB_AUTOSTART" Content="开机自启" Visibility="Hidden" Canvas.Left="374" Canvas.Top="61"/>
+                                    <CheckBox x:Name="SMV_CKB_WHOLEMODE_ENABLE" Content="启用取样收集装置" Canvas.Left="35" Canvas.Top="25"/>
+                                    <Label x:Name="LB_SMV_TB_TEMPOFFSET" Content="温度偏差值：" Canvas.Left="759" Canvas.Top="19"/>
+                                    <TextBox x:Name="SMV_TB_TEMPOFFSET" Canvas.Left="928"  Style="{StaticResource DefaultTextBox}"  Canvas.Top="19" TextWrapping="Wrap" Width="79"/>
+                                    <Label x:Name="LB_SMV_TB_PWDVALIDDAYS" Content="口令有效期：" Canvas.Left="758" Canvas.Top="89"/>
+                                    <TextBox x:Name="SMV_TB_PWDVALIDDAYS" Canvas.Left="928"  Style="{StaticResource DefaultTextBox}"  Canvas.Top="91" TextWrapping="Wrap" Width="79"/>
+                                    <Label Content="℃" Canvas.Left="1013" Canvas.Top="19"/>
+                                    <Label Content="天" Canvas.Left="1013" Canvas.Top="89"/>
+                                    <Label x:Name="LB_SMV_TB_DEFHEATTEMP" Content="默认加热温度：" Canvas.Left="743" Canvas.Top="54"/>
+                                    <TextBox x:Name="SMV_TB_DEFHEATTEMP" Canvas.Left="928"  Style="{StaticResource DefaultTextBox}"  Canvas.Top="54" TextWrapping="Wrap" Width="79"/>
+                                    <Label Content="℃" Canvas.Left="1013" Canvas.Top="54"/>
+                                    <CheckBox x:Name="SMV_CKB_AUTOHEAT_ENABLE" Content="自动加热" Canvas.Left="397" Canvas.Top="95"/>
+                                    <CheckBox x:Name="SMV_CKB_TEMP_ENABLE" Content="启用温度采集" Canvas.Left="397" Canvas.Top="130"/>
+                                    <Label x:Name="LB_SMV_TB_ROTATERATE" Content="转速倍率：" Canvas.Left="774" Canvas.Top="127"/>
+                                    <TextBox x:Name="SMV_TB_ROTATERATE" Canvas.Left="928"  Style="{StaticResource DefaultTextBox}"  Canvas.Top="129" TextWrapping="Wrap" Width="79"/>
+                                    <Label x:Name="LB_SMV_TB_FIRSTFILTER_OFFSET" Content="初滤液补偿：" Canvas.Left="758" Canvas.Top="167"/>
+                                    <TextBox x:Name="SMV_TB_FIRSTFILTER_OFFSET" Canvas.Left="928"  Style="{StaticResource DefaultTextBox}"  Canvas.Top="169" TextWrapping="Wrap" Width="79"/>
+                                    <Label Content="mL" Canvas.Left="1013" Canvas.Top="166"/>
+                                    <Label Content="±" Canvas.Left="893" Canvas.Top="19"/>
+                                    <Label x:Name="LB_SMV_TB_SPEEDOFFSET" Content="转速偏差值：" Canvas.Left="759" Canvas.Top="206"/>
+                                    <TextBox x:Name="SMV_TB_SPEEDOFFSET" Canvas.Left="928"  Style="{StaticResource DefaultTextBox}"  Canvas.Top="206" TextWrapping="Wrap" Width="79"/>
+                                    <Label Content="r" Canvas.Left="1013" Canvas.Top="206"/>
+                                    <Label Content="±" Canvas.Left="893" Canvas.Top="206"/>
+                                </Canvas>
+                            </GroupBox>
+                        </Canvas>
+                    </GroupBox>
+                </Canvas>
+            </TabItem>
+            <TabItem x:Name="SMV_RETRIVER_MANAGE"  Header=" 恢复出厂 " FontSize="16" Margin="-2,0,0,-13" Height="60" VerticalAlignment="Bottom">
+                <Frame Source="/DissolutionClient;component/pages/component/RetriverFactoryView.xaml" Margin="0,-1,0,1" />
+            </TabItem>
+        </TabControl>
+
+
+    </Canvas>
+</Page>

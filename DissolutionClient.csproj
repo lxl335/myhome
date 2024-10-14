@@ -1,0 +1,90 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net5.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+		<ApplicationIcon>favicon-2021.ico</ApplicationIcon>
+	</PropertyGroup>
+
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<OutputPath>..\Dist\DissolutionClient\Debug</OutputPath>
+		<PlatformTarget>x86</PlatformTarget>
+	</PropertyGroup>
+
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<OutputPath>..\Dist\DissolutionClient\Release</OutputPath>
+		<PlatformTarget>x86</PlatformTarget>
+		<DebugType>none</DebugType>
+		<DebugSymbols>false</DebugSymbols>
+	</PropertyGroup>
+
+
+	<ItemGroup>
+	  <Compile Remove="pages\modal\SelfCheckingModal.xaml.cs" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<None Remove="right_nav_bg.png" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <Page Remove="pages\modal\SelfCheckingModal.xaml" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<PackageReference Include="iTextSharp.LGPLv2.Core" Version="1.7.5" />
+		<PackageReference Include="SQLitePCLRaw.bundle_e_sqlcipher" Version="2.0.7" />
+		<PackageReference Include="System.Data.OleDb" Version="5.0.0" />
+		<PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+		<PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
+		<PackageReference Include="WPFFolderBrowser" Version="1.0.2" />
+		<PackageReference Include="ZXing.Net" Version="0.16.6" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <Reference Include="CommonLib">
+	    <HintPath>..\Dist\Dll\Release\CommonLib.dll</HintPath>
+	  </Reference>
+	  <Reference Include="GeckoKit">
+	    <HintPath>..\Dist\Dll\Release\GeckoKit.dll</HintPath>
+	  </Reference>
+	  <Reference Include="LiveChartKit">
+	    <HintPath>..\Dist\Dll\Release\LiveChartKit.dll</HintPath>
+	  </Reference>
+	  <Reference Include="LiveCharts">
+	    <HintPath>..\Dist\Dll\Debug\LiveCharts.dll</HintPath>
+	  </Reference>
+	  <Reference Include="LiveCharts.Wpf">
+	    <HintPath>..\Dist\Dll\Debug\LiveCharts.Wpf.dll</HintPath>
+	  </Reference>
+	  <Reference Include="MoonPdfLib">
+	    <HintPath>..\Dist\Dll\Debug\MoonPdfLib.dll</HintPath>
+	  </Reference>
+	  <Reference Include="PagingKit">
+	    <HintPath>..\Dist\Dll\Release\PagingKit.dll</HintPath>
+	  </Reference>
+	  <Reference Include="PrivelegeKit">
+	    <HintPath>..\Dist\Dll\Release\PrivelegeKit.dll</HintPath>
+	  </Reference>
+	  <Reference Include="System.Data.SQLite">
+	    <HintPath>..\Dist\Dll\Debug\System.Data.SQLite.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <Page Update="pages\modal\SignLoginModal.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	</ItemGroup>
+</Project>

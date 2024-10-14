@@ -1,0 +1,97 @@
+﻿<Page x:Class="Pharmacy.INST.DissolutionClient.pages.DataSearchView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:paging="clr-namespace:com.ccg.PagingKit;assembly=PagingKit"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      xmlns:kb="clr-namespace:com.ccg.GeckoKit.ctrl;assembly=GeckoKit"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1280"
+      Title="DataSearchView" Background="White" Width="1278" Height="596" Loaded="Page_Loaded">
+    <Canvas Margin="0,0,4,0" Width="1278" Height="596">
+        <GroupBox x:Name="DSV_GROUPBOX" Header="检索条件" FontSize="16" Height="179" Width="1264" Canvas.Left="9" Canvas.Top="1" BorderBrush="{DynamicResource GroupBoxBorderBrush}">
+            <Canvas Height="165" Margin="0,0,1,0">
+                <Label x:Name="LB_DSV_DP_METHODDATE_SATRT" Content="实验开始时间：" Width="120" FontSize="16" Canvas.Left="18" Canvas.Top="22"/>
+
+                <DatePicker x:Name="DSV_DP_METHODDATE_SATRT" SelectedDate="{x:Static sys:DateTime.Now}" Canvas.Left="143" Canvas.Top="22" Width="255" Height="35" FontSize="16" >
+                    <DatePicker.Resources>
+                        <Style TargetType="DatePickerTextBox">
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <TextBox x:Name="PART_TextBox" FontSize="16" Height="28"  Text="{Binding Path=SelectedDate, StringFormat='yyyy-MM-dd HH:mm:ss', RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DatePicker.Resources>
+                    <DatePicker.BorderBrush>
+                        <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                            <GradientStop Color="#FFA3AEB9"/>
+                            <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                            <GradientStop Color="#FF718597" Offset="0.375"/>
+                            <GradientStop Color="#FFABADB3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </DatePicker.BorderBrush>
+                </DatePicker>
+
+                <Label x:Name="LB_DSV_DP_METHODDATE_END" Content="实验结束时间："  Width="120" Canvas.Left="467" Canvas.Top="22" FontSize="16"/>
+                <DatePicker x:Name="DSV_DP_METHODDATE_END" SelectedDate="{x:Static sys:DateTime.Now}" Canvas.Left="594" Canvas.Top="22" Width="255" RenderTransformOrigin="0.471,0.375" Height="35" FontSize="16" IsEnabled="False" >
+                    <DatePicker.Resources>
+                        <Style TargetType="DatePickerTextBox">
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <TextBox x:Name="PART_TextBox" FontSize="16" Height="28" Text="{Binding Path=SelectedDate, StringFormat='yyyy-MM-dd HH:mm:ss', RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DatePicker.Resources>
+                    <DatePicker.BorderBrush>
+                        <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                            <GradientStop Color="#FFA3AEB9"/>
+                            <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                            <GradientStop Color="#FF718597" Offset="0.375"/>
+                            <GradientStop Color="#FFABADB3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </DatePicker.BorderBrush>
+                </DatePicker>
+                <CheckBox x:Name="DSV_CKB_DATETIMEENABLE" Content="启用" Canvas.Left="852" Canvas.Top="29" FontSize="16" Click="CheckBox_Click"/>
+
+                <Label x:Name="LB_DSV_METHODNAME" Content="名称：" Canvas.Left="18" Canvas.Top="70" FontSize="16" Width="120"/>
+                <TextBox x:Name="DSV_METHODNAME" Style="{StaticResource DefaultTextBox}" Canvas.Left="143" Canvas.Top="68" TextWrapping="Wrap" Width="255" Height="30" FontSize="16"/>
+                <Label x:Name="LB_DSV_MANUFACTURER" Content="生产厂家：" Canvas.Left="467" Canvas.Top="70" FontSize="16" Width="120"/>
+                <TextBox x:Name="DSV_MANUFACTURER" Style="{StaticResource DefaultTextBox}"  Canvas.Left="595" Canvas.Top="71" TextWrapping="Wrap" Width="255" Height="30" FontSize="16"/>
+                <Label x:Name="LB_DSV_BATCHNO" Content="批号：" Canvas.Left="18" Canvas.Top="111" FontSize="16" Width="120"/>
+                <TextBox x:Name="DSV_BATCHNO" Style="{StaticResource DefaultTextBox}"  Canvas.Left="143" Canvas.Top="114" TextWrapping="Wrap" Width="255" Height="30" FontSize="16"/>
+                <Label x:Name="LB_DSV_TESTDEPARTMENT" Content="检测单位：" Canvas.Left="467" Canvas.Top="111" FontSize="16" Width="120"/>
+                <TextBox x:Name="DSV_TESTDEPARTMENT" Style="{StaticResource DefaultTextBox}"  Canvas.Left="595" Canvas.Top="114" TextWrapping="Wrap" Width="255" Height="30" FontSize="16"/>
+                <Button x:Name="DSV_BTN_SEARCH" Content="检索" Style="{StaticResource DynamicButton}" Canvas.Left="1014" Canvas.Top="110" Width="100" Height="35" Click="DSV_BTN_SEARCH_Click" />
+                <Button x:Name="DSV_BTN_EMPTY" Content="重置" Style="{StaticResource DynamicButton}"  Canvas.Left="1131" Canvas.Top="110" Width="100" Height="35" Click="DSV_BTN_EMPTY_Click"/>
+                <Label x:Name="LB_DSV_TB_ACCOUNT" Content="账号：" Canvas.Left="938" Canvas.Top="70" FontSize="16" Width="76"/>
+                <TextBox x:Name="DSV_TB_ACCOUNT" Style="{StaticResource DefaultTextBox}"  Canvas.Left="1005" Canvas.Top="71" TextWrapping="Wrap" Width="220" Height="30"/>
+                <CheckBox x:Name="DSV_CKB_PAUSEEXP" IsChecked="True" Content="中途中止实验" Canvas.Left="1010" Canvas.Top="29"/>
+                <CheckBox x:Name="DSV_CKB_WHOLEEXP" IsChecked="True" Content="完整实验" Canvas.Left="1140" Canvas.Top="29"/>
+                <Label x:Name="LB_DSV_CKB_STATUS" Content="状态：" Canvas.Left="938" Canvas.Top="22" FontSize="16" Width="76"/>
+                <Border BorderThickness="1" CornerRadius="3" BorderBrush="#FFABADB3" Height="38" Canvas.Left="1004" Canvas.Top="20" Width="249"/>
+            </Canvas>
+        </GroupBox>
+        <!--
+        状态,起始时间,终止时间,ID,名称,批号,生产厂家,检测单位,溶出方法,溶媒体积,水箱温度,总时长,
+        前排转速1,前排转速2,后排转速1,后排转速2,取样体积,自动补液,取样次数,初滤体积
+        -->
+        <ListView x:Name="LV_TESTDATE"  BorderBrush="LightGreen" Height="365" Canvas.Top="185" Width="1260" FontSize="20" Canvas.Left="10" ItemContainerStyle="{StaticResource TestDataViewItem}">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <paging:UserControl1 x:Name="WLV_PAGING" Height="40"  Width="1250" Canvas.Left="13" Canvas.Top="550" PageUp_Click="PageUp_Click" PageDown_Click="PageDown_Click" PageGoHead_Click="PageGoHead_Click" PageGoTail_Click="PageGoTail_Click" PageSize_Change="PageSize_Change"/>
+    </Canvas>
+</Page>

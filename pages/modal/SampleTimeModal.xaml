@@ -1,0 +1,19 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pharmacy.INST.DissolutionClient.pages.modal"
+        xmlns:common="clr-namespace:Pharmacy.INST.DissolutionClient.common" x:Class="Pharmacy.INST.DissolutionClient.pages.modal.SampleTimeModal"
+        xmlns:kb="clr-namespace:com.ccg.GeckoKit.ctrl;assembly=GeckoKit"
+        mc:Ignorable="d"
+        x:Name="STM_MW" Title="取样时间" Height="673" Width="450" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" SizeToContent="Manual" Topmost="True" ShowInTaskbar="False" Loaded="Window_Loaded">
+    <Canvas x:Name="MainCanvas">
+        <DataGrid x:Name="SampleTime_DataGrid" Height="527" CanUserDeleteRows="False" CanUserAddRows="False" HeadersVisibility="None" Canvas.Top="45"  Width="410" Canvas.Left="19" FontSize="18" KeyDown="SampleTime_DataGrid_KeyDown" CellEditEnding="SampleTime_DataGrid_CellEditEnding"/>
+        <Button x:Name="Btn_SaveSampleTime" Style="{StaticResource DynamicButton}"  Content="保存" Canvas.Left="167" Canvas.Top="587" Height="34" Width="63" Click="Btn_SaveSampleTime_Click"/>
+        <kb:KeyboardCtrl Canvas.Left="29" Canvas.Top="585"/>
+        <Button x:Name="Btn_SaveSampleTime_Return" Style="{StaticResource DynamicButton}"  Content="返回" Canvas.Left="249" Canvas.Top="587" Height="34" Width="63" Click="Btn_SaveSampleTime_Return_Click"/>
+        <Label x:Name="STM_SAMPLE_TIMES" Content="取样第次（次）" HorizontalContentAlignment="Center" Canvas.Left="19" FontSize="16" Canvas.Top="10" Width="179"/>
+        <Label x:Name="STM_SAMPLE_POS_TIME" Content="取样时间点（分钟）" HorizontalContentAlignment="Center" Canvas.Left="203" FontSize="16" Canvas.Top="10" Width="220"/>
+    </Canvas>
+</Window>

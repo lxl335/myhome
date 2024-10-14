@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="pages\AboutView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\component\BehaviorManageView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\component\RoleManageView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\component\UserManageView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\component\DataBackupView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\DataSearchView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\DeviceInfoView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\FilterHeadExchView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\InstrumentVerifyView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\component\LoginView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\MainView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\modal\AppointmentTimeModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\modal\CountdownModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\modal\ExperimentDataModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\modal\InputSerialNoModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\modal\LoadMethodModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\modal\NameReportModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\modal\PrepareTimeModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\modal\ReportModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\modal\ReviewPwdModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\modal\SampleTimeModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\modal\SetSpeedModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\modal\SpeedSettingModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\modal\TempMoniterModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\modal\TempSettingModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\modal\UserModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\modal\WashingTimesModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\SystemManageView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\TechSupportView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\VideoMonitorView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\component\WorkLogView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="pages\AboutView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\component\BehaviorManageView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\component\RetriverFactoryView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\component\RoleManageView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\component\UserManageView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\component\DataBackupView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\DataSearchView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\DeviceInfoView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\FilterHeadExchView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\InstrumentVerifyView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\component\LoginView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\MainView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\modal\AppointmentTimeModal.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\modal\CountdownModal.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\modal\ExperimentDataModal.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\modal\InputSerialNoModal.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\modal\LoadMethodModal.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\modal\NameReportModal.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\modal\PrepareTimeModal.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\modal\ReconnectModal.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\modal\ReportModal.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\modal\ReviewPwdModal.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\modal\SampleTimeModal.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\modal\SetSpeedModal.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\modal\SignLoginModal.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\modal\SpeedSettingModal.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\modal\TempMoniterModal.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\modal\TempSettingModal.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\modal\UserModal.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\modal\WashingTimesModal.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\SystemManageView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\TechSupportView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\VideoMonitorView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\component\WorkLogView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

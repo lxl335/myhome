@@ -1,0 +1,19 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:common="clr-namespace:Pharmacy.INST.DissolutionClient.common" x:Class="Pharmacy.INST.DissolutionClient.pages.modal.PrepareTimeModal"
+        xmlns:kb="clr-namespace:com.ccg.GeckoKit.ctrl;assembly=GeckoKit"
+        mc:Ignorable="d"
+        x:Name="PTM_MW" Title="定时" Height="300" Width="500" WindowStartupLocation="CenterScreen">
+    <Canvas Margin="0,0,4,5" x:Name="MainCanvas">
+        <Label x:Name="LB_PTM_TB_PREPARETIME" Content="倒计时时间：" HorizontalContentAlignment="Right" FontSize="18" Canvas.Left="10" Canvas.Top="56" Width="169" />
+        <TextBox x:Name="TB_PREPARETIME" Style="{StaticResource DefaultTextBox}"  VerticalContentAlignment="Center"  TextWrapping="Wrap" Width="175" Height="54" FontSize="36" Canvas.Left="179" Canvas.Top="48" KeyDown="TB_PREPARETIME_KeyDown" />
+        <Label x:Name="LB_PTM_TB_PREPARETIME_UNIT" Content="分钟" FontSize="18" Canvas.Left="379" Canvas.Top="56" Width="58"/>
+        <Button x:Name="BTN_CONFRIM" Style="{StaticResource DynamicButton}" Content="确定" Canvas.Left="79" Canvas.Top="155" Height="40" Width="70" Click="BTN_CONFRIM_Click"/>
+        <Button x:Name="BTN_CANCLE" Style="{StaticResource DynamicButton}" Content="关闭" Canvas.Left="367" Canvas.Top="155" Height="40" Width="70" Click="BTN_CANCLE_Click"/>
+        <kb:KeyboardCtrl Canvas.Left="35" Canvas.Top="205"/>
+        <Button x:Name="BTN_CANCLE_PREPARETIME" Style="{StaticResource DynamicButton}" Content="取消倒计时" Canvas.Left="162" Canvas.Top="155" Height="40" Width="192" Click="BTN_CANCLE_PREPARETIME_Click"/>
+    </Canvas>
+</Window>

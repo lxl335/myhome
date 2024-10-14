@@ -1,0 +1,171 @@
+﻿<Page x:Class="Pharmacy.INST.DissolutionClient.pages.DeviceInfoView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1280"
+      Background="White"
+      Title="DeviceInfoView" Loaded="Page_Loaded" Unloaded="Page_Unloaded">
+    <Canvas Width="1280">
+        <GroupBox Header="" Width="1225" Height="0" Margin="10,0,870,0" FontSize="16" >
+            <Canvas>
+                <Label Content="操作高度：" Margin="100,0,0,0" Canvas.Left="1604" Canvas.Top="53"/>
+                <TextBox x:Name="DIV_TB_CUP_GATHER_TEMP" Canvas.Left="797" Canvas.Top="9" TextWrapping="Wrap" Width="100" Height="30"/>
+                <Button x:Name="DIV_BTN_GATHER_CUP_TEMP" Content="获取小杯温度" Canvas.Left="914" Canvas.Top="9" Height="45" Width="130"/>
+                <TextBox x:Name="DIV_TB_CUP_CALIBRATION_TEMP" Canvas.Left="796" Canvas.Top="89" TextWrapping="Wrap" Width="100" Height="30"/>
+
+                <Label Content="杯号：" Canvas.Left="556" Canvas.Top="14"/>
+                <ComboBox Canvas.Left="616" Canvas.Top="16" Width="86" Height="30"/>
+                <Button x:Name="DIV_BTN_CUP_CALIBRATION" Content="标定" Canvas.Left="1069" Canvas.Top="19" Height="90" Width="125"/>
+                <Label Content="采集值：" Canvas.Left="720" Canvas.Top="10"/>
+                <Label Content="实测值：" Canvas.Left="721" Canvas.Top="86"/>
+                <TextBox x:Name="DIV_TB_CUP_REALITY_TEMP" Canvas.Left="797" Canvas.Top="50" TextWrapping="Wrap" Width="100" Height="30"/>
+                <Label Content="标定值：" Canvas.Left="720" Canvas.Top="47"/>
+                <TextBox x:Name="DIV_TB_WATERBOX_GATHER_TEMP" Canvas.Left="101" Canvas.Top="8" TextWrapping="Wrap" Width="100" Height="30"/>
+                <TextBox x:Name="DIV_TB_WATERBOX_REALITY_TEMP" Canvas.Left="101" Canvas.Top="50" TextWrapping="Wrap" Width="100" Height="30"/>
+                <Label Content="采集值：" Canvas.Left="24" Canvas.Top="9"/>
+                <Label Content="实测值：" Canvas.Left="24" Canvas.Top="46"/>
+                <TextBox x:Name="DIV_TB_WATERBOX_CALIBRATION_TEMP" Canvas.Left="101" Canvas.Top="88" TextWrapping="Wrap" Width="100" Height="30"/>
+                <Label Content="标定值：" Canvas.Left="24" Canvas.Top="85"/>
+                <Button x:Name="DIV_BTN_GATHER_WATERBOX_TEMP" Content="2、获取采集值" Canvas.Left="402" Canvas.Top="10" Height="45" Width="136" />
+                <Button x:Name="DIV_BTN_WATERBOX_CALCCALIBRATION" Content="3、计算标定值" Canvas.Left="420" Canvas.Top="73" Height="41" Width="145" IsCancel="True"/>
+                <Button x:Name="DIV_BTN_CLEAR_WATERBOX_CALIBRATION" Content="1、清除标定值" Canvas.Left="229" Canvas.Top="10" Height="45" Width="130"/>
+                <Button x:Name="DIV_BTN_CALC_CUP_CALIBRATION" Content="计算标定值" Canvas.Left="914" Canvas.Top="73" Height="45" Width="130"/>
+                <Button x:Name="DIV_BTN_WATERBOX_CALIBRATION" Content="4、标定值写入下位机" Canvas.Left="224" Canvas.Top="73" Height="41" Width="171" IsCancel="True" />
+            </Canvas>
+        </GroupBox>
+        <GroupBox  x:Name="DIV_TEMPCALI_GROUPBOX" Header="温度标定" Width="1255" Height="324" Canvas.Top="4" FontSize="16" Canvas.Left="10">
+            <Canvas Height="304" Margin="10,0,0,0">
+                <Canvas>
+                    <Border BorderThickness="1" BorderBrush="Black" Height="291" Width="205" Canvas.Left="-1" Canvas.Top="8">
+                    </Border>
+                    <Border BorderThickness="1" BorderBrush="Black" Height="291" Width="1012" Canvas.Left="212" Canvas.Top="8">
+                    </Border>
+                    <Button x:Name="DIV_BTN_GATH_WATERBOX_TEMP" Style="{StaticResource DynamicButton}"  Content="读取水箱温度"  Click="DIV_BTN_GATH_WATERBOX_TEMP__Click" Height="40" Canvas.Left="15" Canvas.Top="143" Width="180"/>
+                    <Button x:Name="DIV_BTN_CALIBRATION_WATERBOX_RESET" Style="{StaticResource DynamicButton}"  Content="重置校准值"  Click="DIV_BTN_CALIBRATION_WATERBOX_RESET_Click" Height="40" Canvas.Left="46" Canvas.Top="194" Width="120"/>
+                    <Button x:Name="DIV_BTN_CALIBRATION_CUP_RESET" Style="{StaticResource DynamicButton}"  Content="重置校准值"  Width="120" Click="DIV_BTN_CALIBRATION_CUP_RESET_Click" Canvas.Left="1089" Canvas.Top="162" Height="40"/>
+                    <Label x:Name="LB_DIV_GATHERVAL_1" HorizontalContentAlignment="Center" Content="采集值："  Canvas.Left="212" Canvas.Top="99" Width="115"/>
+                    <Label x:Name="LB_DIV_SURVEYVAL_2" HorizontalContentAlignment="Center" Content="测量值："  Canvas.Left="212" Canvas.Top="235" Width="125"/>
+                    <Label x:Name="LB_DIV_GATHERVAL_2" HorizontalContentAlignment="Center" Content="采集值："  Canvas.Left="212" Canvas.Top="203" Width="115"/>
+                    <Label x:Name="LB_DIV_SURVEYVAL_1" HorizontalContentAlignment="Center" Content="测量值："  Canvas.Left="212" Canvas.Top="131" Width="125"/>
+                    <Button x:Name="DIV_BTN_GATHERTMP" Style="{StaticResource DynamicButton}"  Content="读取杯内温度" Canvas.Left="1078" Height="40" Width="140" Click="DIV_BTN_GATHERCUPTMP_Click" Canvas.Top="102"/>
+                    <Canvas x:Name="DIV_CUP_TEMP_PANEL" Height="206" Canvas.Left="335" Canvas.Top="67" Width="739">
+                        <Label Content="1" Canvas.Left="19" Canvas.Top="6" FontSize="18" FontWeight="Bold"/>
+                        <Label x:Name="DIV_CUP_TEMP_1" HorizontalContentAlignment="Center" Content="0" Canvas.Top="36" FontSize="16" Width="58"/>
+                        <Label Content="℃" Canvas.Left="54" Canvas.Top="36" FontSize="16" Width="33"/>
+                        <Label Content="2" Canvas.Left="119" Canvas.Top="6" FontSize="18" FontWeight="Bold"/>
+                        <Label x:Name="DIV_CUP_TEMP_2" HorizontalContentAlignment="Center" Content="0" Canvas.Left="100" Canvas.Top="36" FontSize="16" Width="58"/>
+                        <Label Content="℃" Canvas.Left="154" Canvas.Top="36" FontSize="16" Width="33"/>
+                        <Label Content="3" Canvas.Left="229" Canvas.Top="6" FontSize="18" FontWeight="Bold"/>
+                        <Label x:Name="DIV_CUP_TEMP_3" HorizontalContentAlignment="Center" Content="0" Canvas.Left="210" Canvas.Top="36" FontSize="16" Width="58"/>
+                        <Label Content="℃" Canvas.Left="267" Canvas.Top="36" FontSize="16" Width="33"/>
+                        <Label Content="4" Canvas.Left="349" Canvas.Top="6" FontSize="18" FontWeight="Bold"/>
+                        <Label x:Name="DIV_CUP_TEMP_4" HorizontalContentAlignment="Center" Content="0" Canvas.Left="330" Canvas.Top="36" FontSize="16" Width="58"/>
+                        <Label Content="℃" Canvas.Left="384" Canvas.Top="36" FontSize="16" Width="33"/>
+                        <Label Content="5" Canvas.Left="456" Canvas.Top="6" FontSize="18" FontWeight="Bold"/>
+                        <Label x:Name="DIV_CUP_TEMP_5" HorizontalContentAlignment="Center" Content="0" Canvas.Left="437" Canvas.Top="36" FontSize="16" Width="58"/>
+                        <Label Content="℃" Canvas.Left="491" Canvas.Top="36" FontSize="16" Width="33"/>
+                        <Label Content="6" Canvas.Left="556" Canvas.Top="6" FontSize="18" FontWeight="Bold"/>
+                        <Label x:Name="DIV_CUP_TEMP_6" HorizontalContentAlignment="Center" Content="0" Canvas.Left="537" Canvas.Top="36" FontSize="16" Width="58"/>
+                        <Label Content="℃" Canvas.Left="591" Canvas.Top="36" FontSize="16" Width="33"/>
+                        <Label Content="7" Canvas.Left="666" Canvas.Top="6" FontSize="18" FontWeight="Bold"/>
+                        <Label x:Name="DIV_CUP_TEMP_7" HorizontalContentAlignment="Center" Content="0" Canvas.Left="647" Canvas.Top="36" FontSize="16" Width="58"/>
+                        <Label Content="℃" Canvas.Left="701" Canvas.Top="36" FontSize="16" Width="33"/>
+                        <Label Content="8" Canvas.Left="20" FontSize="18" FontWeight="Bold" Canvas.Top="100"/>
+                        <Label x:Name="DIV_CUP_TEMP_8" HorizontalContentAlignment="Center" Content="0" Canvas.Left="1" Canvas.Top="137" FontSize="16" Width="58"/>
+                        <Label Content="℃" Canvas.Left="59" Canvas.Top="137" FontSize="16" Width="34"/>
+                        <TextBox x:Name="DIV_TB_CUP_TEMP_CALI_1" Canvas.Left="5" Canvas.Top="71" TextWrapping="Wrap" Width="60" Text="37"/>
+                        <TextBox x:Name="DIV_TB_CUP_TEMP_CALI_2" Canvas.Left="106" Canvas.Top="72" TextWrapping="Wrap" Width="60" Text="37"/>
+                        <TextBox x:Name="DIV_TB_CUP_TEMP_CALI_3" Canvas.Left="218" Canvas.Top="72" TextWrapping="Wrap" Width="60" Text="37"/>
+                        <TextBox x:Name="DIV_TB_CUP_TEMP_CALI_4" Canvas.Left="340" Canvas.Top="70" TextWrapping="Wrap" Width="60" Text="37"/>
+                        <TextBox x:Name="DIV_TB_CUP_TEMP_CALI_5" Canvas.Left="444" Canvas.Top="70" TextWrapping="Wrap" Width="60" Text="37"/>
+                        <TextBox x:Name="DIV_TB_CUP_TEMP_CALI_6" Canvas.Left="547" Canvas.Top="70" TextWrapping="Wrap" Width="60" Text="37"/>
+                        <TextBox x:Name="DIV_TB_CUP_TEMP_CALI_7" Canvas.Left="655" Canvas.Top="71" TextWrapping="Wrap" Width="60" Text="37"/>
+                        <TextBox x:Name="DIV_TB_CUP_TEMP_CALI_8" Canvas.Left="7" Canvas.Top="175" TextWrapping="Wrap" Width="60" Text="37"/>
+                        <Label Content="9" Canvas.Left="118" Canvas.Top="100" FontSize="18" FontWeight="Bold"/>
+                        <Label x:Name="DIV_CUP_TEMP_9" HorizontalContentAlignment="Center" Content="0" Canvas.Top="137" FontSize="16" Width="58" Canvas.Left="99"/>
+                        <Label Content="℃" Canvas.Left="153" Canvas.Top="137" FontSize="16" Width="33"/>
+                        <Label Content="10" Canvas.Left="222" Canvas.Top="100" FontSize="18" FontWeight="Bold"/>
+                        <Label Content="℃" Canvas.Left="265" FontSize="16" Width="33" Canvas.Top="137" RenderTransformOrigin="0.485,-0.769"/>
+                        <Label x:Name="DIV_CUP_TEMP_10" HorizontalContentAlignment="Center" Content="0" Canvas.Left="209" Canvas.Top="137" FontSize="16" Width="58"/>
+                        <Label Content="11" Canvas.Left="344" Canvas.Top="100" FontSize="18" FontWeight="Bold"/>
+                        <Label x:Name="DIV_CUP_TEMP_11" HorizontalContentAlignment="Center" Content="0" Canvas.Left="325" Canvas.Top="137" FontSize="16" Width="58"/>
+                        <Label Content="℃" Canvas.Left="379" Canvas.Top="137" FontSize="16" Width="33"/>
+                        <Label Content="12" Canvas.Left="451" Canvas.Top="100" FontSize="18" FontWeight="Bold"/>
+                        <Label x:Name="DIV_CUP_TEMP_12" HorizontalContentAlignment="Center" Content="0" Canvas.Left="431" Canvas.Top="137" FontSize="16" Width="58"/>
+                        <Label Content="℃" Canvas.Left="485" Canvas.Top="137" FontSize="16" Width="33"/>
+                        <Label Content="13" Canvas.Left="552" Canvas.Top="100" FontSize="18" FontWeight="Bold"/>
+                        <Label x:Name="DIV_CUP_TEMP_13" HorizontalContentAlignment="Center" Content="0" Canvas.Left="537" Canvas.Top="137" FontSize="16" Width="58"/>
+                        <Label Content="℃" Canvas.Left="591" Canvas.Top="137" FontSize="16" Width="33"/>
+                        <Label Content="14" Canvas.Left="663" Canvas.Top="100" FontSize="18" FontWeight="Bold"/>
+                        <Label x:Name="DIV_CUP_TEMP_14" HorizontalContentAlignment="Center" Content="0" Canvas.Left="637" Canvas.Top="137" FontSize="16" Width="58"/>
+                        <Label Content="℃" Canvas.Left="691" Canvas.Top="137" FontSize="16" Width="33"/>
+                        <TextBox x:Name="DIV_TB_CUP_TEMP_CALI_9" Canvas.Left="110" Canvas.Top="175" TextWrapping="Wrap" Width="60" Text="37"/>
+                        <TextBox x:Name="DIV_TB_CUP_TEMP_CALI_11" Canvas.Left="337" Canvas.Top="175" TextWrapping="Wrap" Width="60" Text="37"/>
+                        <TextBox x:Name="DIV_TB_CUP_TEMP_CALI_12" Canvas.Left="445" Canvas.Top="175" TextWrapping="Wrap" Width="60" Text="37"/>
+                        <TextBox x:Name="DIV_TB_CUP_TEMP_CALI_13" Canvas.Left="549" Canvas.Top="175" TextWrapping="Wrap" Width="60" Text="37"/>
+                        <TextBox x:Name="DIV_TB_CUP_TEMP_CALI_14"  Canvas.Left="657" Canvas.Top="175" TextWrapping="Wrap" Width="60" Text="37"/>
+                        <TextBox x:Name="DIV_TB_CUP_TEMP_CALI_10"  Canvas.Left="218" Canvas.Top="175" TextWrapping="Wrap" Width="60" Text="37"/>
+                    </Canvas>
+
+                    <Label x:Name="LB_DIV_WATERBOXTEMP" HorizontalContentAlignment="Center" Content="水箱温度" Canvas.Left="38" Canvas.Top="19" FontSize="16" Width="128"/>
+                    <Label x:Name="LB_DIV_TB_WATERBOXTEMP_CALI" Content="测量值：" HorizontalContentAlignment="Center" FontSize="16" Canvas.Top="99" Canvas.Left="1" Width="131"/>
+                    <Label x:Name="DIV_WATERBOXTEMP" Content="36.99" Canvas.Left="62" Canvas.Top="61" FontSize="16" Width="60"/>
+                    <Label Content="℃" Canvas.Left="116" Canvas.Top="61" FontSize="16" Width="33"/>
+                    <Label x:Name="LB_DIV_CUPTEMP" Content="杯内温度" HorizontalContentAlignment="Center" Canvas.Left="613" Canvas.Top="18" FontSize="16" Width="219"/>
+                    <Button x:Name="DIV_BTN_CALIBRATION_CUP" Style="{StaticResource DynamicButton}"  Content="校准" Canvas.Left="1107" Canvas.Top="222" Height="40" Width="90" Click="DIV_BTN_CALIBRATION_CUP_Click"/>
+                    <Button x:Name="DIV_BTN_CALIBRATION_WATERBOX" Style="{StaticResource DynamicButton}"  Content="校准" Canvas.Left="46" Canvas.Top="246" Height="40" Width="120" Click="DIV_BTN_CALIBRATION_WATERBOX_Click"/>
+                    <TextBox x:Name="DIV_TB_WATERBOXTEMP_CALI" Canvas.Left="132" Canvas.Top="104" TextWrapping="Wrap" Width="61"/>
+                </Canvas>
+            </Canvas>
+        </GroupBox>
+        <GroupBox x:Name="DIV_GATHER_GROUPBOX"  Header="收集器" Width="1255" Height="254" Canvas.Top="329" FontSize="16" Canvas.Left="10">
+            <Canvas>
+                <Label x:Name="TIP_DIV_GROUP1" Content="第一组" HorizontalContentAlignment="Center" Canvas.Left="225" Canvas.Top="120" FontSize="18" Width="100"/>
+                <TextBox x:Name="DIV_TB_OUTLETWATER" Canvas.Left="457" Canvas.Top="11" TextWrapping="Wrap" Width="138" Height="30" Text=" "/>
+                <Label Content="号" Canvas.Left="320" Canvas.Top="241"/>
+                <Button x:Name="DIV_BTN_FIRSTSTEP" Content="1、吸液" Style="{StaticResource DynamicButton}"  Canvas.Left="194" Canvas.Top="10" Height="34" Width="208" Click="DIV_BTN_FIRSTSTEP_Click"/>
+                <Button x:Name="DIV_BTN_SUCK" Content="3、倒吸" Style="{StaticResource DynamicButton}"  Canvas.Left="648" Canvas.Top="9" Height="34" Width="110" Click="DIV_BTN_SUCK_Click"/>
+                <Button x:Name="DIV_BTN_PUSHOUTLETWATER" Style="{StaticResource DynamicButton}"  Content="2、打废液" Canvas.Left="458" Canvas.Top="47" Height="34" Width="135" Click="DIV_BTN_PUSHOUTLETWATER_Click"/>
+                <TextBox x:Name="DIV_TB_VOLUME" Canvas.Left="819" Canvas.Top="12" TextWrapping="Wrap" Width="139" Height="30"/>
+                <Button x:Name="DIV_BTN_SUCK_AGAIN" Style="{StaticResource DynamicButton}"  Content="5、倒吸" Canvas.Left="942" Canvas.Top="11" Height="34" Width="110" Click="DIV_BTN_SUCK_AGAIN_Click" Visibility="Hidden"/>
+                <Button x:Name="DIV_BTN_PUSHWATER" Style="{StaticResource DynamicButton}"  Content="6、打液体" Canvas.Left="1090" Canvas.Top="10" Height="34" Width="137" Click="DIV_BTN_PUSHWATER_Click" Visibility="Hidden"/>
+                <Button x:Name="DIV_BTN_PUTVOLUME" Style="{StaticResource DynamicButton}"  Content="4、打操作体积" Canvas.Left="820" Canvas.Top="47" Height="34" Width="137" Click="DIV_BTN_PUTVOLUME_Click"/>
+                <Label x:Name="TIP_DIV_GROUP2"  Content="第二组" HorizontalContentAlignment="Center" Canvas.Left="400" Canvas.Top="119" FontSize="18" Width="100"/>
+                <Label x:Name="OP_VOLUME_INPUT"  Content="操作体积输入：" Canvas.Left="9" Canvas.Top="152" FontSize="18" Width="180"/>
+                <Label x:Name="REAL_VOLUME_INPUT"  Content="实际体积输入：" Canvas.Left="9" Canvas.Top="191" FontSize="18" Width="180"/>
+                <TextBox x:Name="DIV_TB_VOLUME_1" Canvas.Left="196" Canvas.Top="155" TextWrapping="Wrap" Width="150" Height="30"/>
+                <TextBox x:Name="DIV_TB_VOLUME_REALITY_1" Canvas.Left="196" Canvas.Top="194" TextWrapping="Wrap" Width="150" Height="30"/>
+                <TextBox x:Name="DIV_TB_VOLUME_2" Canvas.Left="378" Canvas.Top="155" TextWrapping="Wrap" Width="150" Height="30"/>
+                <TextBox x:Name="DIV_TB_VOLUME_REALITY_2" Canvas.Left="378" Canvas.Top="192" TextWrapping="Wrap" Width="150" Height="30"/>
+                <TextBox x:Name="DIV_TB_INJECTOR_K" Canvas.Left="593" Canvas.Top="154" TextWrapping="Wrap" Width="170" Height="30"/>
+                <TextBox x:Name="DIV_TB_INJECTOR_B" Canvas.Left="594" Canvas.Top="191" TextWrapping="Wrap" Width="170" Height="30"/>
+                <Button x:Name="DIV_BTN_VOLUMECALIBRATION" Content="体积校准" Style="{StaticResource DynamicButton}"  Canvas.Left="782" Canvas.Top="151" Height="68" Width="121" Click="DIV_BTN_VOLUMECALIBRATION_Click"/>
+                <Label Content="K：" Canvas.Left="555" Canvas.Top="149" FontSize="18" Width="46"/>
+                <Label Content="B：" Canvas.Left="555" Canvas.Top="190" FontSize="18" Width="46"/>
+
+                <Label Content=" → " Canvas.Left="413" Canvas.Top="12"/>
+                <Label x:Name="TIP_DIV_0P1ML" Content="注：0.1ml" Canvas.Left="649" Canvas.Top="47" Width="110"/>
+                <Label Content="注：0.1ml" Canvas.Left="943" Canvas.Top="52" Width="95" Visibility="Hidden"/>
+                <Label Content=" → " Canvas.Left="605" Canvas.Top="12"/>
+                <Label Content=" → " Canvas.Left="771" Canvas.Top="12"/>
+                <Label Content=" → " Canvas.Left="965" Canvas.Top="12"/>
+                <Label Content=" → " Canvas.Left="1054" Canvas.Top="12" Visibility="Hidden"/>
+                <Label Content="注：打出所有液体" Canvas.Left="1086" Canvas.Top="52" Width="146" Visibility="Hidden"/>
+                <Button x:Name="DIV_BTN_VOLUMECALIBRATION_RESET" Content="重置校准值" Style="{StaticResource DynamicButton}"  Canvas.Left="8" Canvas.Top="10" Height="34" Width="140" Click="DIV_BTN_VOLUMECALIBRATION_RESET_Click"/>
+                <Label x:Name="TIP_DIV_CALI_RESET" Content="注：校准前请重置" Canvas.Top="50" Width="188"/>
+                <Label x:Name="TIP_DIV_SUCK_MAX" Content="注：至补液位，吸最大量程" Canvas.Left="196" Canvas.Top="49" Width="210"/>
+                <Label x:Name="TIP_DIV_STANDARD_COE" Content="校准系数" HorizontalContentAlignment="Center" Canvas.Left="612" Canvas.Top="120" FontSize="18" Width="125"/>
+                <TextBlock TextWrapping="Wrap" Canvas.Left="943" Canvas.Top="121" FontSize="12" Height="100" Width="291">
+                    <Run x:Name="NOTE_TITLE" Text="说明："/>
+                    <LineBreak/><Run x:Name="NOTE_STEP_1"  Text="第一步：点击【校准值重置】。"/><LineBreak/>
+                    <Run x:Name="NOTE_STEP_2" Text="第二步：按流程运行两次。"/><LineBreak/>
+                    <Run x:Name="NOTE_STEP_3" Text="第三步：输入操作体积和实际体积，点【体积校准】"/><LineBreak/>
+                    <Run x:Name="NOTE_STEP_4" Language="zh-cn" Text="第四步：按流程进行验证。"/>
+                </TextBlock>
+                <Button x:Name="DIV_BTN_OVER" Style="{StaticResource DynamicButton}"  Content="5、完成" Canvas.Left="1010" Canvas.Top="11" Height="34" Width="137" Click="DIV_BTN_OVER_Click"/>
+            </Canvas>
+        </GroupBox>
+    </Canvas>
+</Page>

@@ -1,0 +1,45 @@
+﻿<Page x:Class="Pharmacy.INST.DissolutionClient.pages.InstrumentVerifyView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:paging="clr-namespace:com.ccg.PagingKit;assembly=PagingKit"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1280"
+      Background="White"
+      Title="InstrumentVerifyView"  Width="1278" Height="596" Loaded="Page_Loaded">
+    <Canvas Margin="0,0,0,0" Width="1278" Height="596">
+        <GroupBox x:Name="IVV_GROUPBOX" Header="仪器验证" Width="1264" Canvas.Left="9" FontSize="18" BorderBrush="{DynamicResource GroupBoxBorderBrush}" Height="340">
+            <Canvas Height="323" Width="1264" Margin="0,0,-12,0">
+                <Label x:Name="LB_IVV_RB_VERIFY" Content="验证状态：" Canvas.Left="51" Canvas.Top="18" Width="140"/>
+                <RadioButton x:Name="IVV_RB_VERIFY" Content="已验证" Canvas.Left="223" Canvas.Top="24"/>
+                <Label x:Name="LB_IVV_DP_VERIFYDATE" Content="验证日期：" Canvas.Left="51" Canvas.Top="70" Width="140"/>
+                <DatePicker x:Name="IVV_DP_VERIFYDATE" Canvas.Left="213" Canvas.Top="70" Width="220" Height="30"/>
+                <Label x:Name="LB_IVV_TB_VALIDDAYS" Content="有效期：" Canvas.Left="51" Canvas.Top="129" Width="140"/>
+                <TextBox x:Name="IVV_TB_VALIDDAYS" Canvas.Left="213"  Style="{StaticResource DefaultTextBox}"  Canvas.Top="132" TextWrapping="Wrap" Width="180" Height="30" Text="180"/>
+                <Label x:Name="IVV_UNIT_DAYS" Content="天" Canvas.Left="405" Canvas.Top="147"/>
+                <Label x:Name="LB_IVV_TB_REMARK" Content="备注：" Canvas.Left="51" Canvas.Top="179" Width="140"/>
+                <TextBox x:Name="IVV_TB_REMARK" Canvas.Left="213"  Style="{StaticResource DefaultTextBox}"  Canvas.Top="180" TextWrapping="Wrap" Width="220" Height="30"/>
+                <Button x:Name="IVV_BTN_CONFIRM" Content="验证"  Style="{StaticResource DynamicButton}"  Canvas.Left="57" Canvas.Top="236" Height="50" Width="100" Click="IVV_BTN_CONFIRM_Click"/>
+                <Button x:Name="IVV_BTN_SEARCH" Content="检索"  Style="{StaticResource DynamicButton}"  Canvas.Left="336" Canvas.Top="236" Height="50" Width="100" Click="IVV_BTN_SEARCH_Click"/>
+                <Button x:Name="IVV_BTN_EMPTY" Content="清空"  Style="{StaticResource DynamicButton}" Click="IVV_BTN_EMPTY_Click"  Canvas.Left="193" Canvas.Top="236" Height="50" Width="100" />
+            </Canvas>
+        </GroupBox>
+        <ListView x:Name="LV_VERIFYDATE"  BorderBrush="LightGreen" Height="205" Canvas.Top="345" Width="1260" FontSize="20" Canvas.Left="10" >
+            <ListView.Resources>
+                <Style TargetType="{x:Type GridViewColumnHeader}">
+                    <Setter Property="Height" Value="30" />
+                </Style>
+            </ListView.Resources>
+            <ListView.ItemContainerStyle>
+                <StaticResource ResourceKey="DataListViewItem"/>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <paging:UserControl1 x:Name="WLV_PAGING" Height="40"  Width="1250" Canvas.Left="13" Canvas.Top="550" PageUp_Click="PageUp_Click" PageDown_Click="PageDown_Click"/>
+    </Canvas>
+</Page>

@@ -1,0 +1,85 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      xmlns:common="clr-namespace:Pharmacy.INST.DissolutionClient.common" x:Class="Pharmacy.INST.DissolutionClient.pages.WorkLogView"
+      xmlns:paging="clr-namespace:com.ccg.PagingKit;assembly=PagingKit"
+      xmlns:kb="clr-namespace:com.ccg.GeckoKit.ctrl;assembly=GeckoKit"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1280"
+      Background="White"
+      Title="WorkLogView" Width="1278" Height="596" Loaded="Page_Loaded">
+    <Canvas Margin="0,0,0,0" Width="1278" Height="596">
+        <GroupBox x:Name="WLV_GROUPBOX" Header="检索条件" FontSize="16" Height="154" Width="1264" Canvas.Left="9" Canvas.Top="1" BorderBrush="{DynamicResource GroupBoxBorderBrush}">
+            <Canvas>
+                <Label x:Name="LB_WLV_DP_METHODDATE_SATRT" Content="起始时间：" Width="120" FontSize="16"  Canvas.Left="18" Canvas.Top="22"/>
+                <DatePicker x:Name="WLV_DP_METHODDATE_SATRT" SelectedDate="{x:Static sys:DateTime.Now}" Canvas.Left="143" Canvas.Top="22" Width="255" Height="35" FontSize="16" >
+                    <DatePicker.Resources>
+                        <Style TargetType="{x:Type DatePickerTextBox}">
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <TextBox x:Name="PART_TextBox" FontSize="16" Height="28"  Text="{Binding SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy-MM-dd HH:mm:ss}" />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DatePicker.Resources>
+                </DatePicker>
+                <Label x:Name="LB_WLV_DP_METHODDATE_END" Content="终止时间："  Width="130" Canvas.Left="474" Canvas.Top="22" FontSize="16"/>
+                <DatePicker x:Name="WLV_DP_METHODDATE_END" SelectedDate="{x:Static sys:DateTime.Now}" Canvas.Left="596" Canvas.Top="22" Width="255" RenderTransformOrigin="0.471,0.375" Height="35" FontSize="16" IsEnabled="False" >
+                    <DatePicker.Resources>
+                        <Style TargetType="{x:Type DatePickerTextBox}">
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <TextBox x:Name="PART_TextBox" FontSize="16" Height="28" Text="{Binding SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy-MM-dd HH:mm:ss}" />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DatePicker.Resources>
+                </DatePicker>
+                <CheckBox x:Name="WLV_CKB_DATETIMEENABLE" Content="启用" Canvas.Left="856" Canvas.Top="29" FontSize="16" Click="WLV_CKB_DATETIMEENABLE_Click"/>
+
+                <Label x:Name="LB_WLV_TB_ACCOUNT" Content="账号：" Canvas.Left="926" Canvas.Top="22" FontSize="16" Width="70"/>
+                <TextBox x:Name="WLV_TB_ACCOUNT" Style="{StaticResource DefaultTextBox}" Canvas.Left="995" Canvas.Top="22" TextWrapping="Wrap" Width="244" Height="30"/>
+                <Button x:Name="WLV_BTN_SEARCH" Content="检索" Style="{StaticResource DynamicButton}"  Canvas.Left="988" Canvas.Top="80" Width="90" Height="35" Click="WLV_BTN_SEARCH_Click" />
+
+                <Button x:Name="WLV_BTN_EMPTY" Content="清空" Style="{StaticResource DynamicButton}"  Canvas.Left="1083" Canvas.Top="80" Width="60" Height="35" Click="WLV_BTN_EMPTY_Click"/>
+                <Button x:Name="WLV_BTN_EXPORT" Content="导出" Style="{StaticResource DynamicButton}"  Canvas.Left="1162" Canvas.Top="80" Width="75" Height="35" Click="WLV_BTN_EXPORT_Click"/>
+                <Label x:Name="LB_WLV_COMBO_LOGTYPE" Content="日志类别：" Width="120" FontSize="16"  Canvas.Left="18" Canvas.Top="79"/>
+                <Label x:Name="LB_WLV_COMBO_BEHAVIOR" Content="用户行为：" Width="130" FontSize="16"  Canvas.Left="472" Canvas.Top="79"/>
+                <ComboBox x:Name="WLV_COMBO_BEHAVIOR" Style="{StaticResource DefaultComboBox}" Canvas.Left="596" Canvas.Top="81" Width="255" Height="30"/>
+                <ComboBox x:Name="WLV_COMBO_LOGTYPE" Style="{StaticResource DefaultComboBox}" Canvas.Left="143" Canvas.Top="81" Width="255" Height="30" SelectionChanged="WLV_COMBO_LOGTYPE_SelectionChanged">
+                </ComboBox>
+            </Canvas>
+        </GroupBox>
+
+        <ListView x:Name="LV_WORKLOG" BorderBrush="LightGreen" Height="390" Canvas.Left="10" Canvas.Top="160" Width="1260" FontSize="20">
+            <ListView.Resources>
+                <Style TargetType="{x:Type GridViewColumnHeader}">
+                    <Setter Property="Height" Value="30" />
+                </Style>
+            </ListView.Resources>
+            <ListView.ItemContainerStyle>
+                <StaticResource ResourceKey="DataListViewItem"/>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="LV_WORKLOG_COL_ID" Header="序号" Width="100" DisplayMemberBinding="{Binding SID}"/>
+                    <GridViewColumn x:Name="LV_WORKLOG_COL_USER" Header="账户" Width="150" DisplayMemberBinding="{Binding LoginName}" />
+                    <GridViewColumn x:Name="LV_WORKLOG_COL_LOGTYPE" Header="日志类别" Width="150" DisplayMemberBinding="{Binding LogType}" />
+                    <GridViewColumn x:Name="LV_WORKLOG_COL_BEHAVIOR" Header="行为" Width="200" DisplayMemberBinding="{Binding Behavior}" />
+                    <GridViewColumn x:Name="LV_WORKLOG_COL_TIME" Header="时间" Width="250" DisplayMemberBinding="{Binding ActionTime}" />
+                    <GridViewColumn x:Name="LV_WORKLOG_COL_NOTE" Header="说明" Width="350" DisplayMemberBinding="{Binding Remark}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <paging:UserControl1 x:Name="WLV_PAGING" Height="40"  Width="1250" Canvas.Left="13" Canvas.Top="550" PageUp_Click="PageUp_Click" PageDown_Click="PageDown_Click" PageGoHead_Click="PageGoHead_Click" PageGoTail_Click="PageGoTail_Click" PageSize_Change="PageSize_Change"/>
+    </Canvas>
+</Page>

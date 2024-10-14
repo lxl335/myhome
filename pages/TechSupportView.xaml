@@ -1,0 +1,99 @@
+﻿<Page x:Class="Pharmacy.INST.DissolutionClient.pages.TechSupportView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1280"
+      Background="White"
+      Title="TechSupportView" Loaded="Page_Loaded" Unloaded="Page_Unloaded">
+
+    <Canvas Width="1280">
+        <GroupBox x:Name="TSV_DISSOLUTION_GROUPBOX" Header="溶出仪" Width="420" Height="600"  FontSize="16" Canvas.Left="8" >
+            <Canvas>
+                <Label x:Name="LB_TB_OPERATE_HEIGHT" Content="操作高度：" Canvas.Left="0" Canvas.Top="54"/>
+                <TextBox x:Name="TB_OPERATE_HEIGHT" Style="{StaticResource DefaultTextBox}" Canvas.Left="84" Canvas.Top="55" TextWrapping="Wrap" Width="50" Height="30" FontSize="18" VerticalContentAlignment="Center"/>
+                <Label Content="mL" Canvas.Left="134" Canvas.Top="55"/>
+                <Label x:Name="LB_TB_REALITY_HEIGHT" Content="实际高度：" Canvas.Left="175" Canvas.Top="54"/>
+                <TextBox x:Name="TB_REALITY_HEIGHT" Style="{StaticResource DefaultTextBox}" Canvas.Left="261" Canvas.Top="55" TextWrapping="Wrap" Width="50" Height="30" FontSize="18" VerticalContentAlignment="Center"/>
+                <Label Content="mL" Canvas.Left="311" Canvas.Top="55"/>
+                <Button x:Name="BTN_CONFIRM_HEIGHT"  Style="{StaticResource DynamicButton}" Content="确定" Canvas.Left="348" Canvas.Top="54" Height="30" Width="55" Click="BTN_CONFIRM_HEIGHT_Click"/>
+                <Label x:Name="LB_GROUP_1" Content="第一组：" Canvas.Top="95" Canvas.Left="1" Width="90"/>
+                <TextBox x:Name="TB_OPERATE_HEIGHT_1" Style="{StaticResource DefaultTextBox}" Canvas.Left="84" Canvas.Top="96" TextWrapping="Wrap" Width="50" Height="30" FontSize="18" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="TB_REALITY_HEIGHT_1" Style="{StaticResource DefaultTextBox}" Canvas.Left="138" Canvas.Top="96" TextWrapping="Wrap" Width="50" Height="30" FontSize="18" VerticalContentAlignment="Center"/>
+                <Label x:Name="LB_GROUP_2" Content="第二组：" Canvas.Left="204" Canvas.Top="96" Width="90"/>
+                <TextBox x:Name="TB_OPERATE_HEIGHT_2" Style="{StaticResource DefaultTextBox}" Canvas.Left="288" Canvas.Top="96" TextWrapping="Wrap" Width="50" Height="30" FontSize="18" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="TB_REALITY_HEIGHT_2" Style="{StaticResource DefaultTextBox}" Canvas.Left="343" Canvas.Top="96" TextWrapping="Wrap" Width="50" Height="30" FontSize="18" VerticalContentAlignment="Center"/>
+                <Button x:Name="BTN_SAMPLEPOINTDOWN"  Style="{StaticResource DynamicButton}" Content="取样针下降" Canvas.Left="6" Canvas.Top="135" Height="40" Width="120" Click="BTN_SAMPLEPOINTDOWN_Click"/>
+                <Button x:Name="BTN_SAMPLEPOINTUP"  Style="{StaticResource DynamicButton}" Content="取样针上升" Canvas.Left="138" Canvas.Top="135" Height="40" Width="120" Click="BTN_SAMPLEPOINTUP_Click"/>
+                <Button x:Name="BTN_SAVE_KB"  Style="{StaticResource DynamicButton}" Content="保存校准" Canvas.Left="292" Canvas.Top="133" Height="40" Width="105" Click="BTN_SAVE_KB_Click"/>
+                <Label x:Name="LB_DISSOLUTION_DU" Content="溶出仪耐久测试" HorizontalContentAlignment="Center" Canvas.Left="91" Canvas.Top="238" FontSize="18" Width="247"/>
+                <Label x:Name="LB_TB_SWIVEL_TEST" Content="轴承测试：" Canvas.Left="3" Canvas.Top="290" Width="112"/>
+                <TextBox x:Name="TB_SWIVEL_TEST" Style="{StaticResource DefaultTextBox}"  Canvas.Left="120" Canvas.Top="290" TextWrapping="Wrap" Width="220" Height="30" Text="100" FontSize="18" VerticalContentAlignment="Center"/>
+                <Label Content="RPM" Canvas.Left="350" Canvas.Top="289"/>
+                <Button x:Name="BTN_TEST_SWIVEL_START" Style="{StaticResource DynamicButton}"  Content="开始" Canvas.Left="120" Canvas.Top="332" Height="40" Width="90" Click="BTN_TEST_SWIVEL_START_Click"/>
+                <Button x:Name="BTN_TEST_SWIVEL_END" Style="{StaticResource DynamicButton}"  Content="停止" Canvas.Left="249" Canvas.Top="332" Height="40" Width="90" Click="BTN_TEST_SWIVEL_END_Click"/>
+                <Label x:Name="LB_TB_UPDOWN_TEST" Content="升降测试：" Canvas.Left="3" Canvas.Top="386" Width="112"/>
+                <TextBox x:Name="TB_UPDOWN_TEST" Style="{StaticResource DefaultTextBox}"  Canvas.Left="120" Canvas.Top="386" TextWrapping="Wrap" Width="220" Height="30" FontSize="18" VerticalContentAlignment="Center"/>
+                <Label x:Name="LB_UNIT_CI_1" Content="次" Canvas.Left="352" Canvas.Top="385"/>
+                <Button x:Name="BTN_TEST_UPDOWN_START" Style="{StaticResource DynamicButton}"  Content="开始" Canvas.Left="120" Canvas.Top="426" Height="40" Width="90" Click="BTN_TEST_UPDOWN_START_Click"/>
+                <Button x:Name="BTN_TEST_UPDOWN_END"  Style="{StaticResource DynamicButton}" Content="停止" Canvas.Left="251" Canvas.Top="426" Height="40" Width="90" Click="BTN_TEST_UPDOWN_END_Click"/>
+                <Label x:Name="LB_TB_SAMPLE_POINT" Content="取样针测试：" Canvas.Left="3" Canvas.Top="476" Width="112"/>
+                <TextBox x:Name="TB_SAMPLE_POINT" Style="{StaticResource DefaultTextBox}"  Canvas.Left="120" Canvas.Top="478" TextWrapping="Wrap" Width="220" Height="30" FontSize="18" VerticalContentAlignment="Center"/>
+                <Label x:Name="LB_UNIT_CI_2" Content="次" Canvas.Left="350" Canvas.Top="477"/>
+                <Button x:Name="BTN_TEST_SAMPLE_POINT_START" Style="{StaticResource DynamicButton}"  Content="开始" Canvas.Left="120" Canvas.Top="518" Height="40" Width="90" Click="BTN_TEST_SAMPLE_POINT_START_Click"/>
+                <Button x:Name="BTN_TEST_SAMPLE_POINT_END"  Style="{StaticResource DynamicButton}" Content="停止" Canvas.Left="250" Canvas.Top="518" Height="40" Width="90" Click="BTN_TEST_SAMPLE_POINT_END_Click"/>
+                <TextBox x:Name="TB_CONTAINER_MARK" Style="{StaticResource DefaultTextBox}"  Canvas.Left="108" Canvas.Top="189" TextWrapping="Wrap" Width="87" Height="30" FontSize="18" VerticalContentAlignment="Center"/>
+                <Label x:Name="LB_TB_CONTAINER_MARK" Content="杯内位置：" Canvas.Top="189" Width="79" Height="52" Canvas.Left="1"/>
+                <Label Content="mL" Canvas.Left="202" Canvas.Top="187" Width="54"/>
+                <Button x:Name="TSV_BTN_SAMPLEVERIFY"  Style="{StaticResource DynamicButton}" Content="验证下降" Canvas.Left="268" Canvas.Top="183" Height="40" Width="130" Click="TSV_BTN_SAMPLEVERIFY_Click"/>
+                <Button x:Name="TSV_BTN_CALIBRATION_RESET"  Style="{StaticResource DynamicButton}" Content="重置校准值" Canvas.Left="261" Height="40" Width="137" Click="TSV_BTN_CALIBRATION_RESET_Click" Canvas.Top="7"/>
+                <ComboBox x:Name="TSV_COMBO_DISSOLUTIONMETHODNAME" Canvas.Left="84" Canvas.Top="14" Width="154"/>
+                <Label x:Name="LB_TSV_COMBO_DISSOLUTIONMETHODNAME" Content="溶出方法：" Canvas.Top="11"/>
+            </Canvas>
+        </GroupBox>
+        <GroupBox x:Name="TSV_SAMPLE_GROUPBOX"  Header="取样器" Width="400" Height="600" Margin="10,0,470,0" Canvas.Left="430" FontSize="16">
+            <Canvas>
+                <Label Content="操作高度：" Margin="100,0,0,0" Canvas.Left="1604" Canvas.Top="53"/>
+                <Label x:Name="LB_SAMPLE_DU" Content="取样器耐久测试" HorizontalContentAlignment="Center" Canvas.Left="78" Canvas.Top="32" FontSize="18" Width="247"/>
+                <Label x:Name="LB_TB_PUSHSOLID_TEST" Content="取样测试：" Canvas.Left="4" Canvas.Top="143" Width="105"/>
+                <TextBox x:Name="TB_PUSHSOLID_TEST" Style="{StaticResource DefaultTextBox}"  Canvas.Left="110" Canvas.Top="143" TextWrapping="Wrap" Width="220" Height="30" FontSize="18" VerticalContentAlignment="Center"/>
+                <Label Content="mL" Canvas.Left="344" Canvas.Top="143"/>
+                <Button x:Name="BTN_TEST_PUSHSOLID_START"  Style="{StaticResource DynamicButton}"  Content="开始吸液" Canvas.Left="158" Canvas.Top="202" Height="40" Width="120" Click="BTN_TEST_PUSHSOLID_START_Click"/>
+                <Button x:Name="BTN_TEST_PUSHSOLID_END"  Style="{StaticResource DynamicButton}"  Content="停止" Canvas.Left="159" Canvas.Top="345" Height="40" Width="120" Click="BTN_TEST_PUSHSOLID_END_Click"/>
+                <Label x:Name="LB_TB_VALVE_TEST" Content="阀体测试：" Canvas.Left="4" Canvas.Top="455" Width="105"/>
+                <TextBox x:Name="TB_VALVE_TEST" Style="{StaticResource DefaultTextBox}"  Canvas.Left="110" Canvas.Top="456" TextWrapping="Wrap" Width="220" Height="30" FontSize="18" VerticalContentAlignment="Center"/>
+                <Label x:Name="LB_UNIT_HAO_1" Content="号" Canvas.Left="343" Canvas.Top="454"/>
+                <Button x:Name="BTN_TEST_VALVE_START"  Style="{StaticResource DynamicButton}"  Content="开始" Canvas.Left="111" Canvas.Top="495" Height="40" Width="90" Click="BTN_TEST_VALVE_START_Click"/>
+                <Button x:Name="BTN_TEST_VALVE_END"  Style="{StaticResource DynamicButton}"  Content="停止" Canvas.Left="240" Canvas.Top="495" Height="40" Width="90" Click="BTN_TEST_VALVE_END_Click"/>
+                <Label Content="取样测试：" Canvas.Left="16" Canvas.Top="455" Width="79" Visibility="Hidden"/>
+                <TextBox x:Name="TB_SAMPLE_TEST_Copy" Style="{StaticResource DefaultTextBox}"  Canvas.Left="112" Canvas.Top="455" TextWrapping="Wrap" Width="220" Height="30" FontSize="18" VerticalContentAlignment="Center" Visibility="Hidden"/>
+                <Label Content="次" Canvas.Left="343" Canvas.Top="453" Visibility="Hidden"/>
+                <Button x:Name="BTN_TEST_SAMPLE_START_Copy"  Style="{StaticResource DynamicButton}"  Content="开始" Canvas.Left="113" Canvas.Top="494" Height="40" Width="90" Visibility="Hidden"/>
+                <Button Content="停止" Canvas.Left="242"  Style="{StaticResource DynamicButton}"  Canvas.Top="494" Height="40" Width="90" Visibility="Hidden"/>
+                <Button x:Name="BTN_TEST_PULLSOLID_START"  Style="{StaticResource DynamicButton}"  Content="开始出液" Canvas.Left="158" Canvas.Top="275" Height="40" Width="120" Click="BTN_TEST_PULLSOLID_START_Click"/>
+            </Canvas>
+        </GroupBox>
+        <GroupBox x:Name="TSV_GATHER_GROUPBOX"  Header="收集器" Width="400" Height="600" Margin="10,0,800,0" Canvas.Left="860" FontSize="16">
+            <Canvas Margin="0,1,0,-1">
+                <Label Content="操作高度：" Margin="100,0,0,0" Canvas.Left="1604" Canvas.Top="53"/>
+                <Label x:Name="LB_GATHER_DU" Content="收集器耐久测试" HorizontalContentAlignment="Center" Canvas.Left="82" Canvas.Top="30" FontSize="18" Height="37" Width="247"/>
+                <Label x:Name="LB_TB_OUTPOINT_TEST" Content="出样针测试：" Canvas.Left="3" Canvas.Top="140" Width="120"/>
+                <TextBox x:Name="TB_OUTPOINT_TEST" Style="{StaticResource DefaultTextBox}"  Canvas.Left="120" Canvas.Top="140" TextWrapping="Wrap" Width="220" Height="30" FontSize="18" VerticalContentAlignment="Center"/>
+                <Label x:Name="LB_UNIT_CI_3" Content="次" Canvas.Left="351" Canvas.Top="141"/>
+                <Button x:Name="BTN_TEST_OUTPOINT_START" Content="开始" Style="{StaticResource DynamicButton}"  Canvas.Left="121" Canvas.Top="181" Height="40" Width="90" Click="BTN_TEST_OUTPOINT_START_Click"/>
+                <Button x:Name="BTN_TEST_OUTPOINT_END" Content="停止" Style="{StaticResource DynamicButton}"  Canvas.Left="250" Canvas.Top="181" Height="40" Width="90" Click="BTN_TEST_OUTPOINT_END_Click"/>
+                <Label x:Name="LB_TB_SUPPORTARMPOS_TEST" Content="支臂位测试:" Canvas.Left="3" Canvas.Top="298" Width="120"/>
+                <TextBox x:Name="TB_SUPPORTARMPOS_TEST" Style="{StaticResource DefaultTextBox}"  Canvas.Left="117" Canvas.Top="298" TextWrapping="Wrap" Width="220" Height="30" FontSize="18" VerticalContentAlignment="Center"/>
+                <Label x:Name="LB_UNIT_HAO_2" Content="号" Canvas.Left="349" Canvas.Top="298"/>
+                <Button x:Name="BTN_TEST_SUPPORTARMPOS_START" Style="{StaticResource DynamicButton}"  Content="开始" Canvas.Left="119" Canvas.Top="339" Height="40" Width="90" Click="BTN_TEST_SUPPORTARMPOS_START_Click"/>
+                <Button x:Name="BTN_TEST_SUPPORTARMPOS_END"  Style="{StaticResource DynamicButton}" Content="复位" Canvas.Left="248" Canvas.Top="339" Height="40" Width="90" Click="BTN_TEST_SUPPORTARMPOS_END_Click"/>
+                <Label x:Name="LB_TB_SUPPORTARM_TEST" Content="支臂测试：" Canvas.Left="3" Canvas.Top="452" Width="120"/>
+                <TextBox x:Name="TB_SUPPORTARM_TEST" Style="{StaticResource DefaultTextBox}"  Canvas.Left="120" Canvas.Top="452" TextWrapping="Wrap" Width="220" Height="30" FontSize="18" VerticalContentAlignment="Center"/>
+                <Button x:Name="BTN_TEST_SUPPORTARM_START" Style="{StaticResource DynamicButton}"  Content="开始" Canvas.Left="123" Canvas.Top="489" Height="40" Width="90" Click="BTN_TEST_SUPPORTARM_START_Click"/>
+                <Button x:Name="BTN_TEST_SUPPORTARM_END" Style="{StaticResource DynamicButton}"  Content="停止" Canvas.Left="252" Canvas.Top="489" Height="40" Width="90" />
+                <Label x:Name="LB_UNIT_CI_4" Content="次" Canvas.Left="352" Canvas.Top="451"/>
+            </Canvas>
+        </GroupBox>
+    </Canvas>
+</Page>

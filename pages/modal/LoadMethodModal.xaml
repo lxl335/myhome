@@ -1,0 +1,125 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pharmacy.INST.DissolutionClient.pages.modal"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:common="clr-namespace:Pharmacy.INST.DissolutionClient.common" x:Class="Pharmacy.INST.DissolutionClient.pages.modal.LoadMethodModal"
+        xmlns:kb="clr-namespace:com.ccg.GeckoKit.ctrl;assembly=GeckoKit"
+        mc:Ignorable="d"
+        x:Name="LMM_MW" Title="已有方法" Height="450" Width="800" FontSize="14" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" Loaded="Window_Loaded">
+    <Canvas Width="800" Height="440">
+        <GroupBox x:Name="LMM_SEARCH_COND_GROUPBOX" Header="检索条件" Margin="0,0,5,0" Width="780" Height="185" Canvas.Left="8" Canvas.Top="2">
+            <Canvas x:Name="ConditionView" Height="405" Margin="0,0,-2,0">
+                <Label x:Name="LB_DP_METHODDATE" Content="时间：" HorizontalContentAlignment="Right"  Canvas.Top="7" Width="75"/>
+                <DatePicker x:Name="DP_METHODDATE" SelectedDate="{x:Static sys:DateTime.Now}" Canvas.Left="80" Canvas.Top="9" Width="223" IsEnabled="False" >
+                    <DatePicker.Resources>
+                        <Style TargetType="{x:Type DatePickerTextBox}">
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <TextBox x:Name="PART_TextBox" Text="{Binding SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=yyyy-MM-dd HH:mm:ss}" />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DatePicker.Resources>
+                </DatePicker>
+                <Label x:Name="LB_LMM_METHODNAME" Content="名称："  HorizontalContentAlignment="Right" Canvas.Top="42" Width="75"/>
+                <TextBox x:Name="LMM_METHODNAME" Style="{StaticResource DefaultTextBox}" Canvas.Left="80" Canvas.Top="44" TextWrapping="Wrap" Width="280" />
+                <Label x:Name="LB_LMM_MANUFACTURER" Content="生产厂家：" HorizontalContentAlignment="Right" Canvas.Left="360" Canvas.Top="43" Width="114"/>
+                <TextBox x:Name="LMM_MANUFACTURER" Style="{StaticResource DefaultTextBox}" Canvas.Left="474" Canvas.Top="44" TextWrapping="Wrap" Width="280" />
+                <Label x:Name="LB_LMM_BATCHNO" Content="批号："  HorizontalContentAlignment="Right" Canvas.Top="81" Width="75"/>
+                <TextBox x:Name="LMM_BATCHNO" Style="{StaticResource DefaultTextBox}" Canvas.Left="80" Canvas.Top="83" TextWrapping="Wrap" Width="280" />
+                <Label x:Name="LB_LMM_TESTDEPARTMENT" HorizontalContentAlignment="Right"  Content="检测单位：" Canvas.Left="360" Canvas.Top="81" Width="114"/>
+                <TextBox x:Name="LMM_TESTDEPARTMENT" Style="{StaticResource DefaultTextBox}" Canvas.Left="474" Canvas.Top="83" TextWrapping="Wrap" Width="280"/>
+                <Button x:Name="BTN_SEARCH" Style="{StaticResource DynamicButton}"  Content="检索" Canvas.Left="300" Canvas.Top="122" Width="80" Height="35" Click="BTN_SEARCH_Click" />
+                <Button x:Name="BTN_EMPTY"  Style="{StaticResource DynamicButton}" Content="清空" Canvas.Left="389" Canvas.Top="122" Width="80" Height="35"/>
+                <CheckBox x:Name="CKB_DATETIMEENABLE" Content="启用" Canvas.Left="311" Canvas.Top="13" Click="CKB_DATETIMEENABLE_Click"/>
+                <kb:KeyboardCtrl Canvas.Left="14" Canvas.Top="369"/>
+            </Canvas>
+        </GroupBox>
+        <ListView x:Name="LV_METHOD" BorderBrush="LightGreen" Height="184" Width="775" Canvas.Left="11" Canvas.Top="194" FontSize="16">
+            <ListView.Resources>
+                <Style TargetType="{x:Type GridViewColumnHeader}">
+                    <Setter Property="Height" Value="30" />
+                </Style>
+            </ListView.Resources>
+            <ListView.ItemContainerStyle>
+                <StaticResource ResourceKey="DataListViewItem"/>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="LMM_GV_MethodName" Header="名称" Width="150" DisplayMemberBinding="{Binding MethodName}" />
+                    <GridViewColumn x:Name="LMM_GV_Manufacturer" Header="生产厂商" Width="150" DisplayMemberBinding="{Binding Manufacturer}" />
+                    <GridViewColumn x:Name="LMM_GV_BatchNo" Header="批号" Width="120" DisplayMemberBinding="{Binding BatchNo}" />
+                    <GridViewColumn x:Name="LMM_GV_TestDepartment" Header="检测单位" Width="120" DisplayMemberBinding="{Binding TestDepartment}" />
+                    <GridViewColumn x:Name="LMM_GV_DissolutionMethodName" Header="溶出方法" Width="100" DisplayMemberBinding="{Binding DissolutionMethodName}" />
+                    <GridViewColumn x:Name="LMM_GV_TempSetting" Header="温度设置" Width="100" DisplayMemberBinding="{Binding TempSetting}" />
+                    <GridViewColumn x:Name="LMM_GV_SolutionVolume" Header="溶媒体积" Width="100" DisplayMemberBinding="{Binding SolutionVolume}" />
+                    <GridViewColumn x:Name="LMM_GV_FrontRowSpeed_1" Header="前排转速1" Width="100" DisplayMemberBinding="{Binding oSpeedModule.FrontRowSpeed_1}" />
+                    <GridViewColumn x:Name="LMM_GV_FrontRowSpeed_2" Header="前排转速2" Width="100" DisplayMemberBinding="{Binding oSpeedModule.FrontRowSpeed_2}" />
+                    <GridViewColumn x:Name="LMM_GV_FrontRowStartTime_1" Header="前排启动时间1" Width="100" DisplayMemberBinding="{Binding oSpeedModule.FrontRowStartTime_1}" />
+                    <GridViewColumn x:Name="LMM_GV_FrontRowStartTime_2" Header="前排启动时间2" Width="100" DisplayMemberBinding="{Binding oSpeedModule.FrontRowStartTime_2}" />
+                    <GridViewColumn x:Name="LMM_GV_BackRowSpeed_1" Header="后排转速1" Width="100" DisplayMemberBinding="{Binding oSpeedModule.BackRowSpeed_1}" />
+                    <GridViewColumn x:Name="LMM_GV_BackRowSpeed_2" Header="后排转速2" Width="100" DisplayMemberBinding="{Binding oSpeedModule.BackRowSpeed_2}" />
+                    <GridViewColumn x:Name="LMM_GV_BackRowStartTime_1" Header="后排启动时间1" Width="100" DisplayMemberBinding="{Binding oSpeedModule.BackRowStartTime_1}" />
+                    <GridViewColumn x:Name="LMM_GV_BackRowStartTime_2" Header="后排启动时间2" Width="100" DisplayMemberBinding="{Binding oSpeedModule.BackRowStartTime_2}" />
+                    <GridViewColumn x:Name="LMM_GV_SampleTimes" Header="取样次数" Width="100" DisplayMemberBinding="{Binding SampleTimes}" />
+                    <GridViewColumn x:Name="LMM_GV_SampleVolume" Header="取样体积" Width="100" DisplayMemberBinding="{Binding SampleVolume}" />
+                    <GridViewColumn x:Name="LMM_GV_Auto_Fluid_Infusion" Header="自动补液" Width="100" DisplayMemberBinding="{Binding Auto_Fluid_Infusion}" />
+                    <GridViewColumn x:Name="LMM_GV_First_filter_volume" Header="初滤体积" Width="100" DisplayMemberBinding="{Binding First_filter_volume}" />
+                    <GridViewColumn x:Name="LMM_GV_AllTimespan" Header="总时长" Width="100" DisplayMemberBinding="{Binding AllTimespan}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue1" Header="取样时间1" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[0].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue2" Header="取样时间2" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[1].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue3" Header="取样时间3" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[2].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue4" Header="取样时间4" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[3].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue5" Header="取样时间5" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[4].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue6" Header="取样时间6" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[5].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue7" Header="取样时间7" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[6].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue8" Header="取样时间8" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[7].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue9" Header="取样时间9" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[8].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue10" Header="取样时间10" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[9].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue11" Header="取样时间11" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[10].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue12" Header="取样时间12" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[11].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue13" Header="取样时间13" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[12].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue14" Header="取样时间14" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[13].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue15" Header="取样时间15" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[14].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue16" Header="取样时间16" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[15].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue17" Header="取样时间17" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[16].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue18" Header="取样时间18" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[17].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue19" Header="取样时间19" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[18].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue20" Header="取样时间20" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[19].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue21" Header="取样时间21" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[20].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue22" Header="取样时间22" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[21].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue23" Header="取样时间23" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[22].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue24" Header="取样时间24" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[23].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue25" Header="取样时间25" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[24].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue26" Header="取样时间26" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[25].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue27" Header="取样时间27" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[26].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue28" Header="取样时间28" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[27].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue29" Header="取样时间29" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[28].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue30" Header="取样时间30" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[29].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue31" Header="取样时间31" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[30].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue32" Header="取样时间32" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[31].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue33" Header="取样时间33" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[32].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue34" Header="取样时间34" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[33].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue35" Header="取样时间35" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[34].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue36" Header="取样时间36" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[35].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue37" Header="取样时间37" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[36].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue38" Header="取样时间38" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[37].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue39" Header="取样时间39" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[38].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_TimeValue40" Header="取样时间40" Width="80" DisplayMemberBinding="{Binding Sample_Time_Arr[39].TimeValue}" />
+                    <GridViewColumn x:Name="LMM_GV_MethodTime" Header="时间" Width="80" DisplayMemberBinding="{Binding MethodTime}" />
+                    <GridViewColumn x:Name="LMM_GV_SpeedMode" Header="转速模式" Width="80" DisplayMemberBinding="{Binding oSpeedModule.SpeedMode}" />
+                    <GridViewColumn x:Name="LMM_GV_ElectricmotorMmode" Header="电机模式" Width="80" DisplayMemberBinding="{Binding oSpeedModule.ElectricmotorMmode}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="BTN_CALLMETHOD" Style="{StaticResource DynamicButton}"  Content="调用" Canvas.Left="301" Canvas.Top="386" Height="35" Width="80" Click="BTN_CALLMETHOD_Click"/>
+        <Button x:Name="BTN_DELMETHOD" Style="{StaticResource DynamicButton}"  Content="删除" Canvas.Left="389" Canvas.Top="386" Height="35" Width="80" Click="BTN_DELMETHOD_Click" Foreground="#FFDC2222"/>
+        <Button x:Name="BTN_CANCEL" Style="{StaticResource DynamicButton}"  Content="退出" Canvas.Left="687" Canvas.Top="386" Height="37" Width="80" Click="BTN_CANCEL_Click"/>
+    </Canvas>
+</Window>

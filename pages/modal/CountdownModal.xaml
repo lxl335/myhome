@@ -1,0 +1,14 @@
+﻿<Window x:Class="Pharmacy.INST.DissolutionClient.pages.modal.CountdownModal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pharmacy.INST.DissolutionClient.pages.modal"
+        mc:Ignorable="d"
+        x:Name="CM_WM" Title="倒计时" Height="450" Width="500" WindowStartupLocation="CenterScreen" Closing="Window_Closing" ResizeMode="NoResize">
+    <Canvas Margin="0,0,-1,5">
+        <Label x:Name="LB_LB_COUNTDOWNBULLETIN" Content="倒计时中" Canvas.Left="176" Canvas.Top="2" FontSize="36"/>
+        <Label x:Name="LB_COUNTDOWNBULLETIN" Content="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Canvas.Left="67" Canvas.Top="58" FontSize="48" Width="370" Background="#FFD9DCD9" Height="75"/>
+        <MediaElement x:Name="ME_COUNTDOWN" LoadedBehavior="Manual" Stretch="Fill" Source=".\res\themes\countdown.gif" MediaEnded="ME_COUNTDOWN_MediaEnded" Height="280" Canvas.Left="111" Canvas.Top="140" Width="280" Loaded="ME_COUNTDOWN_Loaded"/>
+    </Canvas>
+</Window>

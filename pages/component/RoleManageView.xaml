@@ -1,0 +1,34 @@
+﻿<Page x:Class="Pharmacy.INST.DissolutionClient.pages.component.RoleManageView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pharmacy.INST.DissolutionClient.pages.component"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1180"
+      Title="RoleManageView" Background="White">
+    <Canvas>
+        <GroupBox x:Name="RMV_ROLELIST_GROUPBOX" Header="角色列表" FontSize="16" Height="575" Width="387" Canvas.Left="3" Canvas.Top="4" BorderBrush="{DynamicResource GroupBoxBorderBrush}">
+            <Canvas>
+                <Button x:Name="SMV_BTN_SAVEPRIVELEGE"  Style="{StaticResource DynamicButton}"   Content="保存" Height="45" Width="175" Click="SMV_SAVEPRIVELEGE_Click" Canvas.Left="11" Canvas.Top="12" />
+                <Button x:Name="SMV_BTN_RETRIVERPRIVELEGE"  Style="{StaticResource DynamicButton}"  Content="撤销" Height="45" Width="165" Click="SMV_RETRIVERPRIVELEGE_Click" Canvas.Left="195" Canvas.Top="12" />
+                <ListBox x:Name="SMV_LB_ROLE_MAMAGE"  ItemContainerStyle="{StaticResource DataListBoxItem}" Height="429" Width="350" Canvas.Left="10" Canvas.Top="62" SelectionChanged="SMV_LB_ROLE_MAMAGE_SelectionChanged"/>
+                <TextBox x:Name="SMV_TB_ROLE" Canvas.Left="11" Canvas.Top="497" TextWrapping="Wrap" Width="200" Style="{StaticResource DefaultTextBox}"/>
+                <Button x:Name="SMV_BTN_ROLE_ADD" Style="{StaticResource DynamicButton}"  Content="添加" Canvas.Left="218" Canvas.Top="497" Height="30" Width="60" Click="SMV_BTN_ROLE_ADD_Click"/>
+                <Button x:Name="SMV_BTN_ROLE_DELETE" Style="{StaticResource DynamicButton}"  Content="删除" Canvas.Left="280" Canvas.Top="497" Height="30" Width="80" Click="SMV_BTN_ROLE_DELETE_Click"/>
+            </Canvas>
+        </GroupBox>
+        <Canvas>
+            <CheckBox x:Name="SMV_CHK_FUNCTION_ALL" Content="全选" FontSize="16" Click="SMV_CHK_FUNCTION_ALL_Click" Canvas.Left="780" Canvas.Top="62" />
+            <GroupBox x:Name="RMV_FUNCTION_GROUPBOX"  Header="功能列表"  FontSize="16" Height="575" Width="360" Canvas.Top="4" Canvas.Left="770" BorderBrush="{DynamicResource GroupBoxBorderBrush}">
+                <Canvas x:Name="FunctionListGroupView" Height="470" Canvas.Left="39" Canvas.Top="45" Width="360" Margin="4,0,4,0">
+                </Canvas>
+            </GroupBox>
+            <CheckBox x:Name="SMV_CHK_MODULE_ALL" Content="全选" FontSize="16" Click="SMV_CHK_MODULE_ALL_Click" Canvas.Left="412" Canvas.Top="61" />
+            <GroupBox x:Name="RMV_MODULELIST_GROUPBOX"  Header="模块列表"  FontSize="16" Height="575" Width="364" Canvas.Top="4" Canvas.Left="398" BorderBrush="{DynamicResource GroupBoxBorderBrush}">
+                <Canvas x:Name="ModuleListGroupView" Height="470" Canvas.Left="39" Canvas.Top="45" Margin="8,0,12,0">
+                </Canvas>
+            </GroupBox>
+        </Canvas>
+    </Canvas>
+</Page>

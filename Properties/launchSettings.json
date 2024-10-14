@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DissolutionClient": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}
